@@ -1,18 +1,22 @@
 grammar Dsl
 
-entry Model:
-    (persons+=Person | greetings+=Greeting)*;
+entry Model: plan+=Plan*;
 
-Person:
-    'person' name=ID;
+Plan:
+    day=Day ':' NL
+        meals+=Meal+ NL;
 
-Greeting:
-    'Hello' person=[Person:ID] '!';
 
-hidden terminal WS: /\s+/;
-terminal ID: /[_a-zA-Z][\w_]*/;
-terminal INT returns number: /[0-9]+/;
-terminal STRING: /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/;
+Day: label=TEXT;
+Meal: name=TEXT;
+
+EOL returns string: NL | EOF;
+
+terminal NL: /\n+/;
+hidden terminal WS: /[ \t\r]+/;
+
+terminal NUMBER returns number: /[0-9]+(\.[0-9]+)?/;
+terminal TEXT: /[\p{L}][\p{L}\p{N} ]*[\p{L}\p{N}]?/u;
 
 hidden terminal ML_COMMENT: /\/\*[\s\S]*?\*\//;
 hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
