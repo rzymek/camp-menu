@@ -1,0 +1,39 @@
+{
+  "name": "tcs-calc",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "preview": "vite preview",
+    "build": "npm-run-all clean -p check:* bundle",
+    "clean": "rm -rf dist",
+    "check:test": "vitest --run",
+    "check:types": "tsc -b",
+    "bundle": "run-s build:*",
+    "build:bundle": "vite build",
+    "build:icons": "pwa-assets-generator --root dist --preset minimal-2023 icon.svg",
+    "build:z-clean": "rm -f vite.config.d.ts vite.config.js tsconfig*.tsbuildinfo"
+  },
+  "dependencies": {
+    "jsdom": "^26.0.0",
+    "preact": "^10.26.4",
+    "@babel/plugin-transform-react-jsx-source": "^7.25.9",
+    "@preact/preset-vite": "^2.10.1",
+    "@testing-library/preact": "^3.2.4",
+    "@vite-pwa/assets-generator": "^1.0.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.2",
+    "vite": "5.4.17",
+    "vite-plugin-pwa": "^1.0.0",
+    "vitest": "^3.1.1"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ],
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  }
+}
