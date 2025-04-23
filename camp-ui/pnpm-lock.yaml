@@ -20,6 +20,9 @@ importers:
       '@vite-pwa/assets-generator':
         specifier: ^1.0.0
         version: 1.0.0
+      camp-dsl:
+        specifier: link:../camp-dsl
+        version: link:../camp-dsl
       jsdom:
         specifier: ^26.0.0
         version: 26.0.0

@@ -5,7 +5,7 @@ import {VitePWA} from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: '/$SHORT_NAME',
+    base: '/camp-menu',
     test: {
         environment: "jsdom",
     },
@@ -14,9 +14,9 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
             manifest: {
-                name: "$NAME",
-                short_name: '$SHORT_NAME',
-                description: "$NAME",
+                name: "camp-menu",
+                short_name: 'camp-menu',
+                description: "camp-menu",
                 theme_color: "#FFFFE0",
                 icons: [{
                     src: "pwa-64x64.png",
