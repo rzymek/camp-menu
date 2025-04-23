@@ -14,7 +14,8 @@
     "scripts": {
         "build": "npm-run-all langium:generate:production -p compile lint test",
         "compile": "tsc",
-        "watch": "npm run build -- --watch",
+        "compile:watch": "tsc --watch",
+        "watch": "run-p *:watch",
         "lint": "eslint src --ext ts",
         "langium:generate": "langium generate",
         "langium:generate:production": "langium generate --mode=production",
