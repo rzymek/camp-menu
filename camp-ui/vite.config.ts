@@ -9,6 +9,14 @@ export default defineConfig({
     test: {
         environment: "jsdom",
     },
+    optimizeDeps:{
+        exclude: ['camp-dsl']
+    },
+    server:{
+        fs:{
+            strict: false,
+        },
+    },
     plugins: [
         preact(),
         VitePWA({

@@ -1,22 +1,24 @@
 grammar Dsl
 
-entry Model: plan+=Plan*;
+entry Model: (plan+=Plan)*;
 
 Plan:
-    day=Day ':' NL
-        meals+=Meal+ NL;
-
+    day=Day ':' (count=Count)?
+        INDENT meals+=Meal+
+        DEDENT;
 
 Day: label=TEXT;
-Meal: name=TEXT;
+Meal: name=TEXT (count=Count)?;
 
-EOL returns string: NL | EOF;
+Count: '(' count=NUMBER ')';
 
-terminal NL: /\n+/;
-hidden terminal WS: /[ \t\r]+/;
 
-terminal NUMBER returns number: /[0-9]+(\.[0-9]+)?/;
+terminal NUMBER returns number: /[0-9]+/;
+terminal INDENT: 'synthetic:indent';
+terminal DEDENT: 'synthetic:dedent';
 terminal TEXT: /[\p{L}][\p{L}\p{N} ]*[\p{L}\p{N}]?/u;
+hidden terminal WS: /[\t ]+/;
+hidden terminal NL: /[\r\n]+/;
 
-hidden terminal ML_COMMENT: /\/\*[\s\S]*?\*\//;
-hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
+
+

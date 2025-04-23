@@ -1,4 +1,4 @@
-import {type Module, inject} from "langium"
+import {type Module, inject, IndentationAwareTokenBuilder, IndentationAwareLexer} from "langium"
 import {
     createDefaultModule,
     createDefaultSharedModule,
@@ -37,6 +37,10 @@ export const DslModule: Module<DslServices, PartialLangiumServices & DslAddedSer
     },
     lsp: {
         CompletionProvider: (services: DslServices) => new DslCompletionProvider(services),
+    },
+    parser: {
+        TokenBuilder: () => new IndentationAwareTokenBuilder(),
+        Lexer: (services) => new IndentationAwareLexer(services),
     },
 }
 
