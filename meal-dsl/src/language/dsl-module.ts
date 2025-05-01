@@ -1,4 +1,4 @@
-import {type Module, inject} from "langium"
+import {IndentationAwareLexer, IndentationAwareTokenBuilder, inject, type Module} from "langium"
 import {
     createDefaultModule,
     createDefaultSharedModule,
@@ -10,6 +10,7 @@ import {
 import {DslGeneratedModule, DslGeneratedSharedModule} from "./generated/module.js"
 import {DslValidator, registerValidationChecks} from "./dsl-validator.js"
 import {DslCompletionProvider} from "./dsl-completion-provider.js"
+
 
 /**
  * Declaration of custom services - add your own service classes here.

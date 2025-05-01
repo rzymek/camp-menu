@@ -6,8 +6,8 @@
 * konfitura jagodowa: 60 g
 
 # żeberka
-* żeberka surowe:	300	g
-* ziemniaki: 0.150 kg
+* żeberka surowe: 300 g
+* ziemniaki: 0.15 kg
 * cebula: 60 g
 * rodzynki: 5 g
 * olej rzepakowy: 10 ml
@@ -22,8 +22,8 @@
 * ostra pasta paprykowa: 15 g
 * olej rzepakowy: 10 ml
 * koncentrat pomidorowy: 5 g
-* chilli: 0.1	opakowanie
-* papryka (przyprawa): 0.1	opakowanie
+* chilli: 0.1 opakowanie
+* papryka (przyprawa): 0.1 opakowanie
 
 # zielone curry
 * pierś kurczaka: 150 g
@@ -45,7 +45,7 @@
 # cassoulet
 * fasola: 150 g
 * kiełbasa ~15cm: 1 szt
-* karkówka:	100 g
+* karkówka: 100 g
 * boczek: 50 g
 * udka kurczaka: 1 szt
 * czosnek granulowany: 4 g
@@ -55,7 +55,7 @@
 * pomidory krojone puszka / przecier pomidorowy: 100 g
 * koncentrat pomidorowy: 10 g
 * olej rzepakowy: 50 ml
-* marchew: 0.10 kg
+* marchew: 0.1 kg
 * cebula: 50 g
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
@@ -147,7 +147,7 @@
 * sól: 10 g
 * pomidory krojone puszka / przecier pomidorowy: 100 g
 * olej rzepakowy: 50 ml
-* kasza gryczana: 100	g
+* kasza gryczana: 100 g
 * marchew: 0.15 kg
 * cebula: 100 g
 * czerwona papryka: 0.1 g
@@ -175,7 +175,7 @@
 * goździki: 0.01 g
 * rum do grogu: 0.125 L
 * cukier: 4 g
-* cytryna: 100g
+* cytryna: 100 g
 + wyciskarka do cytryn
 + termos
 
@@ -219,32 +219,32 @@
 + płyta żeliwna, szpachla
 
 # kwaśnica
-* żeberka surowe:	175	g
-* wędzony boczek:	75	g
-* żeberka wędzone:	150	g
+* żeberka surowe: 175 g
+* wędzony boczek: 75 g
+* żeberka wędzone: 150 g
 * majeranek: 0.2 opakowanie
-* kapusta kiszona:	100	g
-* ziemniaki:	0.2	kg
+* kapusta kiszona: 100 g
+* ziemniaki: 0.2 kg
 * czosnek granulowany: 4 g
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
 
 # bigos
 * kiełbasa ~15cm: 1 szt
-* karkówka:	125	g
+* karkówka: 125 g
 * majeranek: 0.2 opakowanie
 * ziarna jałowca: 0.2 opakowanie
-* kapusta kiszona:	150	g
+* kapusta kiszona: 150 g
 * kapusty (główka): 100 g
-* pomidory krojone puszka / przecier pomidorowy: 50	g
-* cebula:   50 g
+* pomidory krojone puszka / przecier pomidorowy: 50 g
+* cebula: 50 g
 * suszone śliwki: 7 g
 + kociołek,łyżka,druciak
 
 # polędwiczki z grilla
 * chleb: 4 kromki
-* polędwiczki wieprzowe: 350	g
-* żurawina:	80 g
+* polędwiczki wieprzowe: 350 g
+* żurawina: 80 g
 + płyta żeliwna, szpachla
 
 # jajko sadzone
@@ -255,15 +255,15 @@
 
 # pankejki
 * jajka: 1 szt
-* proszek do pieczenia:	4 g
-* mąka:	100	g
+* proszek do pieczenia: 4 g
+* mąka: 100 g
 * mleko: 0.1 L
 * cukier: 10 g
 * olej rzepakowy: 35 ml
 + płyta żeliwna, szpachla
 
 # żurek
-* zakwasu żytniego do żurku: 125ml
+* zakwasu żytniego do żurku: 125 ml
 * majeranek: 0.2 opakowanie
 * sól: 10 g
 * pieprz: 10 g
@@ -276,36 +276,36 @@
 
 # chili con carne
 * tortilla: 2 szt
-* mięso mielone wołowe:	125	g
+* mięso mielone wołowe: 125 g
 * czosnek granulowany: 4 g
-* chilli: 0.1	opakowanie
+* chilli: 0.1 opakowanie
 * oregano: 0.2 opakowanie
 * kmin rzymski: 0.2 opakowanie
 * sól: 10 g
-* kukurydza puszka: 50g
-* fasola: 50g
-* pomidory krojone puszka / przecier pomidorowy:	200	g
+* kukurydza puszka: 50 g
+* fasola: 50 g
+* pomidory krojone puszka / przecier pomidorowy: 200 g
 * olej rzepakowy: 35 ml
-* jalapenos:	50	g
-* czerwona papryka:	100 g
-* cebula: 	120 g
+* jalapenos: 50 g
+* czerwona papryka: 100 g
+* cebula: 120 g
 * czekolada gorzka: 0.1 tabliczki
 + kociołek,łyżka,druciak
 
 # chili sin carne
 * tortilla: 2 szt
 * czosnek granulowany: 4 g
-* chilli: 0.1	opakowanie
+* chilli: 0.1 opakowanie
 * oregano: 0.2 opakowanie
 * kmin rzymski: 0.2 opakowanie
 * sól: 10 g
-* kukurydza puszka: 50g
-* fasola: 150g
-* pomidory krojone puszka / przecier pomidorowy:	100	g
+* kukurydza puszka: 50 g
+* fasola: 150 g
+* pomidory krojone puszka / przecier pomidorowy: 100 g
 * olej rzepakowy: 35 ml
-* jalapenos:	50	g
-* czerwona papryka:	100 g
-* cebula: 	120 g
+* jalapenos: 50 g
+* czerwona papryka: 100 g
+* cebula: 120 g
 * czekolada gorzka: 0.1 tabliczki
 + kociołek,łyżka,druciak
 
@@ -350,7 +350,7 @@
 # szakszuka
 * jajka: 2 szt
 * pomidory krojone puszka: 200 g
-* czerwona papryka:	150 g
+* czerwona papryka: 150 g
 * cebula: 80 g
 * czosnek granulowany: 8 g
 * sól: 4 g
@@ -364,4 +364,3 @@
 * olej rzepakowy: 200 ml
 + Metalowe sitko
 + Durszlak
-

@@ -1,18 +1,25 @@
 grammar Dsl
+entry Model: recipies+=Recipe*;
 
-entry Model:
-    (persons+=Person | greetings+=Greeting)*;
+Recipe:
+    header=Header 
+    items+=Item+
+    equipment+=Equipment*
+;
 
-Person:
-    'person' name=ID;
+Header: '#' title=TEXT;
+Item: '*' name=TEXT ':' quantity=Quantity;
+Quantity: value=NUMBER unit=TEXT;
 
-Greeting:
-    'Hello' person=[Person:ID] '!';
+Equipment: '+' desc=TEXT;
 
-hidden terminal WS: /\s+/;
-terminal ID: /[_a-zA-Z][\w_]*/;
-terminal INT returns number: /[0-9]+/;
-terminal STRING: /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/;
+hidden terminal WS: /[\t ]+/;
+hidden terminal NL: /[\r\n]+/;
+
+terminal INDENT: 'synthetic:indent';
+terminal DEDENT: 'synthetic:dedent';
+terminal NUMBER returns number: /[0-9]+([.][0-9]+)?/;
+terminal TEXT: /[\p{L}][^:*+\n]*/u;
 
 hidden terminal ML_COMMENT: /\/\*[\s\S]*?\*\//;
 hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
