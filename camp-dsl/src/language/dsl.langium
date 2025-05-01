@@ -3,12 +3,13 @@ grammar Dsl
 entry Model: (plan+=Plan)*;
 
 Plan:
-    day=Day ':' (count=Count)?
-        INDENT meals+=Meal+
+    day=Day (count=Count)? ':' 
+        INDENT meals+=Meals+
         DEDENT;
 
-Day: label=TEXT;
-Meal: name=TEXT (count=Count)?;
+Day returns string: TEXT;
+Meals: recipies+=Recipe (',' recipies+=Recipe)*;
+Recipe: name=TEXT (count=Count)?;
 
 Count: '(' count=NUMBER ')';
 
