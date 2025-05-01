@@ -1,4 +1,4 @@
-import {IndentationAwareLexer, IndentationAwareTokenBuilder, inject, type Module} from "langium"
+import {inject, type Module} from "langium"
 import {
     createDefaultModule,
     createDefaultSharedModule,

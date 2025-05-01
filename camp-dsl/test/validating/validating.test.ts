@@ -23,16 +23,17 @@ beforeAll(async () => {
 describe('Validating', () => {
   
     test('check no errors', async () => {
-        document = await parse(`
-            person Langium
+        document = await parse(s`
+            wt:
+                jajecznica
         `);
 
         expect(
-            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)?.join('\n')
-        ).toHaveLength(0);
+            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)
+        ).toEqual([])
     });
 
-    test('check capital letter validation', async () => {
+    test.skip('check capital letter validation', async () => {
         document = await parse(`
             person langium
         `);

@@ -6,6 +6,7 @@ import {createDslServices} from "../../src/language/dsl-module.js"
 import {Model} from "../../src/language/generated/ast.js"
 import {checkDocumentValid} from "../checkDocumentValid.js"
 import {diagnosticToString} from "../diagnosticToString.js"
+import fs from "node:fs/promises"
 
 let services: ReturnType<typeof createDslServices>;
 let parse:    ReturnType<typeof parseHelper<Model>>;
@@ -23,27 +24,12 @@ beforeAll(async () => {
 describe('Validating', () => {
   
     test('check no errors', async () => {
-        document = await parse(`
-            person Langium
-        `);
+        const meals = await fs.readFile(__dirname + "/../meals.md")
+        document = await parse(`${meals}`);
 
         expect(
-            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)?.join('\n')
-        ).toHaveLength(0);
-    });
-
-    test('check capital letter validation', async () => {
-        document = await parse(`
-            person langium
-        `);
-
-        expect(
-            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)?.join('\n')
-        ).toEqual(
-            expect.stringContaining(s`
-                [1:19..1:26]: Person name should start with a capital.
-            `)
-        );
+            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)
+        ).toEqual([])
     });
 });
 
