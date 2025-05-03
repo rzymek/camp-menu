@@ -5,22 +5,20 @@ import {createParser} from "../api/parser.js"
 import {LangiumDocument} from "langium"
 import {Model} from "../language/generated/ast.js"
 
-configureMonacoWorkers()
-
-const parser = createParser()
-
 export function DslEditor(props: {
     children: string,
     onChange(value: LangiumDocument<Model>): void,
     importMetaUrl: string
 }) {
     const ref = useRef<HTMLDivElement>(null)
-    const wrapper = useRef<Promise<DslEditorInstance>>(null)
+    const wrapper = useRef<DslEditorInstance>(null)
     useEffect(() => {
         (async () => {
             if (!ref.current) return
-            wrapper.current = executeClassic(ref.current, {
-                code: props.children,
+            configureMonacoWorkers()
+            const parser = createParser()
+            wrapper.current = await executeClassic(ref.current, {
+                code: '',
                 async onChange(text) {
                     const result = await parser(text)
                     props.onChange(result)
@@ -28,8 +26,12 @@ export function DslEditor(props: {
             })
         })()
         return () => {
-            wrapper.current?.then(i => i.dispose())
+            wrapper.current?.dispose()
         }
+    }, [])
+    useEffect(() => {
+        if (!wrapper.current) return
+        wrapper.current.code = props.children
     }, [props.children])
     return <div ref={ref} style={{flex: 1}}/>
 }

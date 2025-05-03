@@ -87,6 +87,9 @@ importers:
       jsdom:
         specifier: ^26.0.0
         version: 26.1.0
+      meal-dsl:
+        specifier: link:../meal-dsl
+        version: link:../meal-dsl
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5

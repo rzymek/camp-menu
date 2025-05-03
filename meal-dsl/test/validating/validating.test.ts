@@ -1,6 +1,5 @@
 import {beforeAll, describe, expect, test} from "vitest"
 import {EmptyFileSystem, type LangiumDocument} from "langium"
-import {expandToString as s} from "langium/generate"
 import {parseHelper} from "langium/test"
 import {createDslServices} from "../../src/language/dsl-module.js"
 import {Model} from "../../src/language/generated/ast.js"
