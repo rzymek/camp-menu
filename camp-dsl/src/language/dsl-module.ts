@@ -1,4 +1,4 @@
-import {type Module, inject, IndentationAwareTokenBuilder, IndentationAwareLexer} from "langium"
+import {IndentationAwareLexer, IndentationAwareTokenBuilder, inject, type Module} from "langium"
 import {
     createDefaultModule,
     createDefaultSharedModule,
@@ -24,7 +24,7 @@ export type DslAddedServices = {
  * Union of Langium default services and your custom services - use this as constructor parameter
  * of custom service classes.
  */
-export type DslServices = LangiumServices & DslAddedServices
+export type DslServices = LangiumServices & DslAddedServices;
 
 /**
  * Dependency injection module that overrides Langium default services and contributes the

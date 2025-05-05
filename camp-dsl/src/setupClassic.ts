@@ -1,9 +1,10 @@
 import {MonacoEditorLanguageClientWrapper, UserConfig} from "monaco-editor-wrapper"
 import {configureWorker, defineUserServices} from "./setupCommon.js"
 import monarchSyntax from "./syntaxes/dsl.monarch.js"
+import {UpdateCompletionDataNotification} from "./language/update-completion-data.js"
 
 type Options = {
-    code: string
+    code: string;
     onChange(value: string): Promise<void>;
 };
 
@@ -37,14 +38,14 @@ export function setupConfigClassic(opts: Options): UserConfig {
 
 export interface DslEditorInstance {
     dispose(): Promise<void>;
-
+    updateCompletionData(items: string[]): Promise<void>;
     code: string;
 }
-
 export async function executeClassic(htmlElement: HTMLElement, options: Options): Promise<DslEditorInstance> {
     const userConfig = setupConfigClassic(options)
     const wrapper = new MonacoEditorLanguageClientWrapper()
     await wrapper.initAndStart(userConfig, htmlElement)
+
     const editor = wrapper.getEditor()
     if (!editor) {
         throw new Error("Editor is undefined")
@@ -55,6 +56,11 @@ export async function executeClassic(htmlElement: HTMLElement, options: Options)
     options.onChange(options.code).then()
     return {
         dispose: () => wrapper.dispose(),
+        async updateCompletionData(items:string[]){
+            await wrapper.getLanguageClient()!.sendNotification(UpdateCompletionDataNotification, {
+                items
+            })
+        },
         set code(text: string) {
             wrapper.getEditor()?.setValue(text)
         },

@@ -1,8 +1,13 @@
-import {recipes} from "../../meal-dsl/src/api/parser.ts"
+import {Recipe, recipes} from "../../meal-dsl/src/api/parser.ts"
 
-export const meals = await loadMeals();
+export class MealsProvider {
+    private meals?:Recipe[];
 
-async function loadMeals() {
-    const mealsSrc = await fetch("/meals.md").then(r => r.text());
-    return await recipes(mealsSrc);
+    public async getMeals() {
+        if(this.meals === undefined) {
+            const mealsSrc = await fetch("/meals.md").then(r => r.text());
+            this.meals = await recipes(mealsSrc);
+        }
+        return this.meals.map(it => ({name: it.title}))
+    }
 }

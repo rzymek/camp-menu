@@ -11,7 +11,7 @@ let parse:    ReturnType<typeof parseHelper<Model>>;
 let document: LangiumDocument<Model> | undefined;
 
 beforeAll(async () => {
-    services = createDslServices(EmptyFileSystem);
+    services = createDslServices(EmptyFileSystem, external);
     parse = parseHelper<Model>(services.Dsl);
 
     // activate the following if your linking test requires elements from a built-in library, for example

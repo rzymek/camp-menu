@@ -8,7 +8,12 @@ import {Model} from "../language/generated/ast.js"
 export function DslEditor(props: {
     children: string,
     onChange(value: LangiumDocument<Model>): void,
-    importMetaUrl: string
+    importMetaUrl: string,
+    external: {
+        MealProvider(): {
+            getMeals(): Promise<{ name: string }[]>
+        }
+    }
 }) {
     const ref = useRef<HTMLDivElement>(null)
     const wrapper = useRef<DslEditorInstance>(null)
@@ -17,13 +22,17 @@ export function DslEditor(props: {
             if (!ref.current) return
             configureMonacoWorkers()
             const parser = createParser()
-            wrapper.current = await executeClassic(ref.current, {
-                code: '',
+            const editor: DslEditorInstance = await executeClassic(ref.current, {
+                code: "",
                 async onChange(text) {
                     const result = await parser(text)
                     props.onChange(result)
                 },
             })
+            wrapper.current = editor
+            const mealProvider = props.external.MealProvider()
+            const meals = await mealProvider.getMeals();
+            await editor.updateCompletionData(meals.map(meal => meal.name));
         })()
         return () => {
             wrapper.current?.dispose()
