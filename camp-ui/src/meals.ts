@@ -8,6 +8,6 @@ export class MealsProvider {
             const mealsSrc = await fetch("/meals.md").then(r => r.text());
             this.meals = await recipes(mealsSrc);
         }
-        return this.meals.map(it => ({name: it.title}))
+        return this.meals;
     }
 }

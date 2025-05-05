@@ -5,10 +5,6 @@ import {createParser} from "../api/parser.js"
 import {LangiumDocument} from "langium"
 import {Model} from "../language/generated/ast.js"
 
-configureMonacoWorkers()
-
-const parser = createParser()
-
 export function DslEditor(props: {
     children: string,
     onChange(value: LangiumDocument<Model>): void,
@@ -19,6 +15,8 @@ export function DslEditor(props: {
     useEffect(() => {
         (async () => {
             if (!ref.current) return
+            configureMonacoWorkers()
+            const parser = createParser()
             wrapper.current = executeClassic(ref.current, {
                 code: props.children,
                 async onChange(text) {

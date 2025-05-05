@@ -8,6 +8,7 @@ export default defineConfig({
     base: '/',
     test: {
         environment: "jsdom",
+        setupFiles: ["vite.setup.ts"],
     },
     optimizeDeps:{
         exclude: ['camp-dsl']
@@ -21,6 +22,9 @@ export default defineConfig({
         preact(),
         VitePWA({
             registerType: 'autoUpdate',
+            workbox: {
+                maximumFileSizeToCacheInBytes: 1024 * 1024 * 1024,
+            },
             manifest: {
                 name: "camp-menu",
                 short_name: 'camp-menu',

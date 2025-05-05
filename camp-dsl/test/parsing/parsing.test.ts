@@ -77,5 +77,5 @@ describe("Parsing tests", () => {
 })
 
 function count(v: Count | undefined): string {
-    return v ? "(" + v?.count + ")" : ""
+    return v ? " (" + v?.count + ")" : ""
 }

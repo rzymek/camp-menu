@@ -5,13 +5,15 @@ import {createParser} from "../api/parser.js"
 import {LangiumDocument} from "langium"
 import {Model} from "../language/generated/ast.js"
 
+export type {LangiumDocument} from "langium"
+
 export function DslEditor(props: {
     children: string,
     onChange(value: LangiumDocument<Model>): void,
     importMetaUrl: string,
     external: {
         MealProvider(): {
-            getMeals(): Promise<{ name: string }[]>
+            getMeals(): Promise<{ title: string }[]>
         }
     }
 }) {
@@ -31,8 +33,8 @@ export function DslEditor(props: {
             })
             wrapper.current = editor
             const mealProvider = props.external.MealProvider()
-            const meals = await mealProvider.getMeals();
-            await editor.updateCompletionData(meals.map(meal => meal.name));
+            const meals = await mealProvider.getMeals()
+            await editor.updateCompletionData(meals.map(meal => meal.title))
         })()
         return () => {
             wrapper.current?.dispose()

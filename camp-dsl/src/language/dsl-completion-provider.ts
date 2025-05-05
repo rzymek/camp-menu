@@ -14,6 +14,7 @@ export class DslCompletionProvider extends DefaultCompletionProvider {
                     detail: 'Keyword',
                 })
             })
+            return;
         }
         return super.completionFor(context, next, acceptor)
     }

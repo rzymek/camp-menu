@@ -1,3 +1,4 @@
 packages:
   - camp-dsl
+  - meal-dsl
   - camp-ui 

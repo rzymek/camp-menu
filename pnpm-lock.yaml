@@ -99,6 +99,9 @@ importers:
       preact:
         specifier: ^10.26.4
         version: 10.26.5
+      remeda:
+        specifier: ^2.21.3
+        version: 2.21.3
       typescript:
         specifier: ^5.8.2
         version: 5.8.3
@@ -111,6 +114,67 @@ importers:
       vitest:
         specifier: ^3.1.1
         version: 3.1.2(@types/node@18.19.86)(jsdom@26.1.0)(terser@5.39.0)
+
+  meal-dsl:
+    dependencies:
+      '@codingame/monaco-vscode-editor-service-override':
+        specifier: ~3.2.3
+        version: 3.2.3
+      '@codingame/monaco-vscode-keybindings-service-override':
+        specifier: ~3.2.3
+        version: 3.2.3
+      langium:
+        specifier: ~3.4.0
+        version: 3.4.0
+      monaco-editor:
+        specifier: npm:@codingame/monaco-vscode-editor-api@~3.2.3
+        version: '@codingame/monaco-vscode-editor-api@3.2.3'
+      monaco-editor-wrapper:
+        specifier: ~4.0.2
+        version: 4.0.2(@codingame/monaco-vscode-api@3.2.3)(@codingame/monaco-vscode-editor-api@3.2.3)(monaco-languageclient@8.1.1(@codingame/monaco-vscode-api@3.2.3)(@codingame/monaco-vscode-editor-api@3.2.3))
+      monaco-languageclient:
+        specifier: ~8.1.1
+        version: 8.1.1(@codingame/monaco-vscode-api@3.2.3)(@codingame/monaco-vscode-editor-api@3.2.3)
+      preact:
+        specifier: ^10.26.5
+        version: 10.26.5
+      vscode:
+        specifier: npm:@codingame/monaco-vscode-api@~3.2.3
+        version: '@codingame/monaco-vscode-api@3.2.3'
+      vscode-languageserver:
+        specifier: ^9.0.1
+        version: 9.0.1
+    devDependencies:
+      '@codingame/esbuild-import-meta-url-plugin':
+        specifier: ~1.0.2
+        version: 1.0.3
+      '@types/node':
+        specifier: ^18.0.0
+        version: 18.19.86
+      '@typescript-eslint/eslint-plugin':
+        specifier: ~7.3.1
+        version: 7.3.1(@typescript-eslint/parser@7.3.1(eslint@8.57.1)(typescript@5.1.6))(eslint@8.57.1)(typescript@5.1.6)
+      '@typescript-eslint/parser':
+        specifier: ~7.3.1
+        version: 7.3.1(eslint@8.57.1)(typescript@5.1.6)
+      eslint:
+        specifier: ~8.57.0
+        version: 8.57.1
+      langium-cli:
+        specifier: ~3.4.0
+        version: 3.4.0
+      npm-run-all:
+        specifier: ^4.1.5
+        version: 4.1.5
+      typescript:
+        specifier: ~5.1.6
+        version: 5.1.6
+      vitest:
+        specifier: ~3.1.1
+        version: 3.1.2(@types/node@18.19.86)(jsdom@26.1.0)(terser@5.39.0)
+      vscode-languageserver-types:
+        specifier: '*'
+        version: 3.17.5
 
 packages:
 
@@ -2850,6 +2914,9 @@ packages:
     resolution: {integrity: sha512-cnE+y8bz4NhMjISKbgeVJtqNbtf5QpjZP+Bslo+UqkIt9QPnX9q095eiRRASJG1/tz6dlNr6Z5NsBiWYokp6EQ==}
     hasBin: true
 
+  remeda@2.21.3:
+    resolution: {integrity: sha512-XXrZdLA10oEOQhLLzEJEiFFSKi21REGAkHdImIb4rt/XXy8ORGXh5HCcpUOsElfPNDb+X6TA/+wkh+p2KffYmg==}
+
   require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
@@ -3184,6 +3251,10 @@ packages:
   type-fest@0.20.2:
     resolution: {integrity: sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==}
     engines: {node: '>=10'}
+
+  type-fest@4.40.1:
+    resolution: {integrity: sha512-9YvLNnORDpI+vghLU/Nf+zSv0kL47KbVJ1o3sKgoTefl6i+zebxbiDQWoe/oWWqPhIgQdRZRT1KA9sCPL810SA==}
+    engines: {node: '>=16'}
 
   typed-array-buffer@1.0.3:
     resolution: {integrity: sha512-nAYYwfY3qnzX30IkA6AQZjVbtK6duGontcQm1WSG1MD94YLqK0515GNApXkoxKOWMusVssAHWLh9SeaoefYFGw==}
@@ -6453,6 +6524,10 @@ snapshots:
     dependencies:
       jsesc: 3.0.2
 
+  remeda@2.21.3:
+    dependencies:
+      type-fest: 4.40.1
+
   require-from-string@2.0.2: {}
 
   resolve-from@4.0.0: {}
@@ -6839,6 +6914,8 @@ snapshots:
   type-fest@0.16.0: {}
 
   type-fest@0.20.2: {}
+
+  type-fest@4.40.1: {}
 
   typed-array-buffer@1.0.3:
     dependencies:

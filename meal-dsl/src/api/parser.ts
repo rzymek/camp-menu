@@ -1,5 +1,5 @@
 import {createDslServices} from "../language/dsl-module.js"
-import {EmptyFileSystem} from "langium"
+import {EmptyFileSystem, LangiumDocument} from "langium"
 import {parseHelper} from "langium/test"
 import {Model} from "../language/generated/ast.js"
 
@@ -9,24 +9,35 @@ export interface Recipe {
     equipment: { desc: string }[]
 }
 
+function throwOnFailure(result: LangiumDocument<Model>): void {
+    const errors = [
+        ...result.parseResult.parserErrors,
+        ...result.parseResult.lexerErrors,
+    ];
+    if(errors.length > 0) {
+        throw new Error(errors.map(e => e.message).join('\n'));
+    }
+}
+
 export async function recipes(src: string): Promise<Recipe[]> {
     const parser = createParser()
     const result = await parser(src)
+    throwOnFailure(result)
     const {recipies} = result.parseResult.value
     return recipies.map(recipe => ({
-        title: recipe.header.title,
+        title: recipe.header.title.trim(),
         items: recipe.items.map(item => ({
-            name: item.name,
+            name: item.name.trim(),
             quantity: item.quantity.value,
-            unit: item.quantity.unit
+            unit: item.quantity.unit.trim(),
         } as const)),
         equipment: recipe.equipment.map(it => ({
-            desc: it.desc
+            desc: it.desc.trim(),
         } as const)),
-    } as const));
+    } as const))
 }
 
-function createParser() {
+export function createParser() {
     const services = createDslServices(EmptyFileSystem)
     return parseHelper<Model>(services.Dsl)
 }
