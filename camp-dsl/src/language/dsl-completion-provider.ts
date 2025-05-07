@@ -4,20 +4,19 @@ export class DslCompletionProvider extends DefaultCompletionProvider {
     private items: string[] = ["initial"]
 
     override completionFor(context: CompletionContext, next: NextFeature, acceptor: CompletionAcceptor) {
-        console.log("completionFor", next.type, next.property, context)
-
         if (next.type === "Recipe" && next.property === "name") {
             this.items.forEach(meal => acceptor(context, {
                 label: meal,
             }))
         } else if (next.property === "day") {
-            console.log({daysOfWeek})
             daysOfWeek.forEach((it, idx) => acceptor(context, {
                 label: it,
                 sortText: `${idx}`,
             }))
-        } else {
-            return super.completionFor(context, next, acceptor)
+        } else if (next.property === "count") {
+            [1,2,3,4,5,6,7,8,9].forEach(it => acceptor(context, {
+                label: `${it}`,
+            }))
         }
     }
 

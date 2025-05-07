@@ -12,34 +12,67 @@ const external = {
     MealProvider: () => new MealsProvider(),
 } as const
 
+const initial = `
+czwartek (4):
+    quesadilla
+piątek (4):
+    jajecznica z pomidorami
+    tosty
+    hamburger (5), hamburger wege (1)
+sobota:
+    szakszuka (6)
+    curry wurst (5), curry wurst wege (1)
+    chilli con carne (5), burger wege (1)
+niedziela (6):
+    jajecznica z pomidorami
+    tosty (5), tosty wege (1)
+    prażonka (6)
+poniedziałek:
+    jajecznica z pomidorami (6)
+    quesadilla (5), quesadilla wege (1)
+`.trim();
+
 export function App() {
     const [result, setResult] = useState<LangiumDocument<Model>>()
+    const meals = useMeals()
     return <div style={{display: "flex", flexDirection: "column", position: "absolute", inset: 0}}>
-        <DslEditor onChange={setResult} importMetaUrl={import.meta.url} external={external}>
-            {``}
-        </DslEditor>
+        <div style={{flex: 2, display: "flex", flexDirection: "row"}}>
+            <div style={{flex: 2, display: "flex"}}>
+                <DslEditor onChange={setResult} importMetaUrl={import.meta.url} external={external}>
+                    {initial}
+                </DslEditor>
+            </div>
+            <select multiple style={{flex: 1}}>
+                {meals.map(meal => <option>{meal.title}</option>)}
+            </select>
+        </div>
         <div style={{flex: 1}}>
             {result && <ShoppingList model={result}/>}
         </div>
     </div>
 }
 
-function useShoppingList(model: LangiumDocument<Model>) {
-    const [meals, setMeals] = useState<Recipe[]>()
+function useMeals() {
+    const [meals, setMeals] = useState<Recipe[]>([])
     useEffect(() => {
         new MealsProvider().getMeals().then(setMeals)
     }, [])
+    return meals
+}
+
+function useShoppingList(model: LangiumDocument<Model>) {
+    const meals = useMeals()
 
     return useMemo(() => {
-        if(meals === undefined) {
-            return [];
+        if (meals === undefined) {
+            return []
         }
-        return shoppingList(mealList(model), meals);
+        return shoppingList(mealList(model), meals)
     }, [model, meals])
 }
 
 function ShoppingList(props: { model: LangiumDocument<Model> }) {
-    const list = useShoppingList(props.model);
+    const list = useShoppingList(props.model)
     return <div>
         {list.map(item => <div>{item.name} {item.quantity} {item.unit}</div>)}
     </div>
