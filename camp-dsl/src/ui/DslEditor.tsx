@@ -25,7 +25,7 @@ export function DslEditor(props: {
             configureMonacoWorkers()
             const parser = createParser()
             const editor: DslEditorInstance = await executeClassic(ref.current, {
-                code: "",
+                code: props.children,
                 async onChange(text) {
                     const result = await parser(text)
                     props.onChange(result)

@@ -9,13 +9,19 @@ export class DslSemanticTokenProvider extends AbstractSemanticTokenProvider {
             acceptor({
                 node,
                 property: "day",
-                type: SemanticTokenTypes.comment,
+                type: SemanticTokenTypes.type,
             })
         } else if (node.$type === "Recipe") {
             acceptor({
                 node,
                 property: "name",
-                type: SemanticTokenTypes.function,
+                type: SemanticTokenTypes.keyword,
+            })
+        } else if (node.$type === "Count") {
+            acceptor({
+                node,
+                property: "count",
+                type: SemanticTokenTypes.string,
             })
         }
     }
