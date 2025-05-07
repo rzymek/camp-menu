@@ -23,6 +23,8 @@ describe("Parsing tests", () => {
     test("parse simple model", async () => {
         const src: string = s`
             czwartek (4):
+                -
+                -
                 quesadilla
             piątek (4):
                 jajecznica z pomidorami
@@ -51,6 +53,8 @@ describe("Parsing tests", () => {
             ,
         ).toEqual({
             "czwartek (4)": [
+                [],
+                [],
                 ["quesadilla"],
             ],
             "niedziela (6)": [

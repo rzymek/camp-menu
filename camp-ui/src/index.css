@@ -12,3 +12,30 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Table styling with borders and alternating row colors */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+table, th, td {
+  border: 1px solid gray;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+/* Alternating row background colors */
+tr:nth-child(even) {
+  background-color: lightgray;
+}
+
+/* Optional: Add header styling */
+thead tr {
+  background-color: lightyellow;
+  font-weight: bold;
+}

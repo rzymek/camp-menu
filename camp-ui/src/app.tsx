@@ -1,12 +1,11 @@
 import "./app.css"
 import {DslEditor} from "../../camp-dsl/src"
-import {useEffect, useMemo, useState} from "preact/compat"
+import {useState} from "preact/compat"
 import {MealsProvider} from "./meals.ts"
 import {Model} from "../../camp-dsl/src/language/generated/ast.ts"
 import {LangiumDocument} from "camp-dsl/src/ui/DslEditor.tsx"
-import {shoppingList} from "./shoppingList.ts"
-import {mealList} from "./mealList.ts"
-import {Recipe} from "../../meal-dsl/src/api/parser.ts"
+import {PlanView} from "./planView.tsx"
+import {useMeals} from "./useMeals.tsx"
 
 const external = {
     MealProvider: () => new MealsProvider(),
@@ -47,34 +46,8 @@ export function App() {
             </select>
         </div>
         <div style={{flex: 1}}>
-            {result && <ShoppingList model={result}/>}
+            {result && <PlanView model={result}/>}
         </div>
-    </div>
-}
-
-function useMeals() {
-    const [meals, setMeals] = useState<Recipe[]>([])
-    useEffect(() => {
-        new MealsProvider().getMeals().then(setMeals)
-    }, [])
-    return meals
-}
-
-function useShoppingList(model: LangiumDocument<Model>) {
-    const meals = useMeals()
-
-    return useMemo(() => {
-        if (meals === undefined) {
-            return []
-        }
-        return shoppingList(mealList(model), meals)
-    }, [model, meals])
-}
-
-function ShoppingList(props: { model: LangiumDocument<Model> }) {
-    const list = useShoppingList(props.model)
-    return <div>
-        {list.map(item => <div>{item.name} {item.quantity} {item.unit}</div>)}
     </div>
 }
 
