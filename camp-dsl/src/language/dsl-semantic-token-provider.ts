@@ -4,7 +4,6 @@ import {SemanticTokenTypes} from "vscode-languageserver-types"
 
 export class DslSemanticTokenProvider extends AbstractSemanticTokenProvider {
     protected override highlightElement(node: AstNode, acceptor: SemanticTokenAcceptor): void {
-        console.log("highlightElement", node.$type)
         if (node.$type === "Plan") {
             acceptor({
                 node,

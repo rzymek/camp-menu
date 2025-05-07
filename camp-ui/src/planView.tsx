@@ -14,7 +14,12 @@ export function PlanView(props: { model: LangiumDocument<Model> }) {
         <tbody>
         {range(0, maxSections).map(section => <tr key={section}>
             {plan.map(day => <td key={day.day}>
-                {day.meals[section]?.recipies.map(r => r.name).join(", ") ?? ""}
+                <div style={{display:'grid', gridTemplateColumns: '1fr 0fr', width: '100%', gap: 4, alignItems:'center'}}>
+                {day.meals[section]?.recipies.flatMap((r,idx) => [
+                    <div key={`name:${r.name}.${idx}`}>{r.name}</div>,
+                    <div key={`count:${r.name}.${idx}`}>{r.count?.count ?? day.count?.count}</div>
+                ])}
+                </div>
             </td>)}
         </tr>)}
         </tbody>
