@@ -10,6 +10,7 @@ import {
 import {DslGeneratedModule, DslGeneratedSharedModule} from "./generated/module.js"
 import {DslValidator, registerValidationChecks} from "./dsl-validator.js"
 import {DslCompletionProvider} from "./dsl-completion-provider.js"
+import {DslSemanticTokenProvider} from "./dsl-semantic-token-provider.js"
 
 /**
  * Declaration of custom services - add your own service classes here.
@@ -36,7 +37,8 @@ export const DslModule: Module<DslServices, PartialLangiumServices & DslAddedSer
         DslValidator: () => new DslValidator(),
     },
     lsp: {
-        CompletionProvider: (services: DslServices) => new DslCompletionProvider(services),
+        CompletionProvider: services => new DslCompletionProvider(services),
+        SemanticTokenProvider: services => new DslSemanticTokenProvider(services),
     },
     parser: {
         TokenBuilder: () => new IndentationAwareTokenBuilder(),
