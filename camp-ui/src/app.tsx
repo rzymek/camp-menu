@@ -57,5 +57,11 @@ export function App() {
         <Tab name="Zakupy">
             {result && <ShoppingList model={result}/>}
         </Tab>
+        {result?.parseResult.value.plan.map(day => <Tab key={day.day} name={day.day}>
+            <pre>
+                xxx:
+            {day.meals.flatMap(meal => meal.recipies).map(r => r.name).join("\n")}
+            </pre>
+        </Tab>)}
     </Tabs>
 }
