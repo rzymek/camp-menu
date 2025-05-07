@@ -2,7 +2,7 @@ name: Bundle and deploy to Github Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,7 +19,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -33,15 +32,15 @@ jobs:
       - name: Build 🔧
         run: |
           npm i -g pnpm 
-          pnpm i
-          pnpm run build
+          pnpm -r i
+          pnpm -r run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: 'dist'
+          path: 'camp-ui/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
