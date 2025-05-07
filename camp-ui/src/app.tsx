@@ -6,6 +6,8 @@ import {Model} from "../../camp-dsl/src/language/generated/ast.ts"
 import {LangiumDocument} from "camp-dsl/src/ui/DslEditor.tsx"
 import {PlanView} from "./planView.tsx"
 import {useMeals} from "./useMeals.tsx"
+import {Tab, Tabs} from "./tabs.tsx"
+import {ShoppingList} from "./shoppingList.tsx"
 
 const external = {
     MealProvider: () => new MealsProvider(),
@@ -29,25 +31,31 @@ niedziela (6):
 poniedziałek:
     jajecznica z pomidorami (6)
     quesadilla (5), quesadilla wege (1)
-`.trim();
+`.trim()
 
 export function App() {
     const [result, setResult] = useState<LangiumDocument<Model>>()
     const meals = useMeals()
-    return <div style={{display: "flex", flexDirection: "column", position: "absolute", inset: 0}}>
-        <div style={{flex: 2, display: "flex", flexDirection: "row"}}>
-            <div style={{flex: 2, display: "flex"}}>
-                <DslEditor onChange={setResult} importMetaUrl={import.meta.url} external={external}>
-                    {initial}
-                </DslEditor>
+    return <Tabs style={{position: "absolute", inset: 0}}>
+        <Tab name="Plan">
+            <div style={{display: "flex", flexDirection: "column", position: "absolute", inset: 0}}>
+                <div style={{flex: 2, display: "flex", flexDirection: "row"}}>
+                    <div style={{flex: 2, display: "flex"}}>
+                        <DslEditor onChange={setResult} importMetaUrl={import.meta.url} external={external}>
+                            {initial}
+                        </DslEditor>
+                    </div>
+                    <select multiple style={{flex: 1}}>
+                        {meals.map(meal => <option>{meal.title}</option>)}
+                    </select>
+                </div>
+                <div style={{flex: 1}}>
+                    {result && <PlanView model={result}/>}
+                </div>
             </div>
-            <select multiple style={{flex: 1}}>
-                {meals.map(meal => <option>{meal.title}</option>)}
-            </select>
-        </div>
-        <div style={{flex: 1}}>
-            {result && <PlanView model={result}/>}
-        </div>
-    </div>
+        </Tab>
+        <Tab name="Zakupy">
+            {result && <ShoppingList model={result}/>}
+        </Tab>
+    </Tabs>
 }
-
