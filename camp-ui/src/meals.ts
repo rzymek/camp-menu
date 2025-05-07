@@ -5,7 +5,7 @@ export class MealsProvider {
 
     public async getMeals() {
         if(this.meals === undefined) {
-            const mealsSrc = await fetch("/meals.md").then(r => r.text());
+            const mealsSrc = await fetch("meals.md").then(r => r.text());
             this.meals = await recipes(mealsSrc);
         }
         return this.meals;
