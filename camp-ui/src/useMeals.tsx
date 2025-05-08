@@ -2,10 +2,27 @@ import {useEffect, useState} from "preact/compat"
 import {Recipe} from "../../meal-dsl/src/api/parser.ts"
 import {MealsProvider} from "./meals.ts"
 
-export function useMeals() {
-    const [meals, setMeals] = useState<Recipe[]>([])
+const globalCache = {
+    meals: {
+        loading: false,
+        ready: false,
+        value: [] as Recipe[],
+    },
+}
+
+export function useMeals(): Recipe[]     {
+    const [ready, setReady] = useState(globalCache.meals.ready)
     useEffect(() => {
-        new MealsProvider().getMeals().then(setMeals)
+        if (globalCache.meals.loading) {
+            return
+        }
+        globalCache.meals.loading = true
+        new MealsProvider().getMeals()
+            .then(meals => {
+                globalCache.meals.value = meals
+                globalCache.meals.ready = true
+                setReady(true)
+            })
     }, [])
-    return meals
+    return ready ? globalCache.meals.value : []
 }

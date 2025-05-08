@@ -35,11 +35,11 @@ const initial = pipe(
     [
         decodeURIComponent(location.search.replace(/^[?]src=/, "")),
         localStorage.getItem("src"),
-        demoSrc
+        demoSrc,
     ],
     filter(it => !!it),
     first(),
-)!;
+)!
 
 
 export function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {

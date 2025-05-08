@@ -39,7 +39,7 @@ export function DayList(props: { meals: Plan["meals"] }) {
     return <div style={{paddingBottom: 16}}>
         {data.map(section => <div>
             <h3>{section.title}</h3>
-            <ShoppingListView list={section.list}/>
+            <ShoppingListView list={section.list} storagePrefix={section.title}/>
             <ul>
                 {section.equipment.map(it => <li key={it}>{it}</li>)}
             </ul>

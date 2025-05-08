@@ -2,23 +2,21 @@ import {useMemo} from "preact/compat"
 import {shoppingList} from "./shoppingList"
 import {mealList} from "./mealList"
 import {useMeals} from "./useMeals"
-import {flat, round} from "remeda"
+import {flat, omit, round} from "remeda"
 import {Plan} from "../../camp-dsl/src/api/parser.ts"
+import useLocalStorage from "use-local-storage"
 
 function useShoppingList(plan: Plan[]) {
     const meals = useMeals()
 
-    return useMemo(() => {
-        if (meals === undefined) {
-            return []
-        }
-        return shoppingList(mealList(plan), meals)
-    }, [plan, meals])
+    return useMemo(() =>
+            shoppingList(mealList(plan), meals),
+        [plan, meals])
 }
 
 export function ShoppingList(props: { plan: Plan[] }) {
     const list = useShoppingList(props.plan)
-    return <ShoppingListView list={flat(list)}/>
+    return <ShoppingListView list={flat(list)} storagePrefix="shopping-list"/>
 }
 
 interface ShoppingListItem {
@@ -27,16 +25,25 @@ interface ShoppingListItem {
     unit: string
 }
 
-export function ShoppingListView(props: { list: ShoppingListItem[] }) {
+export function ShoppingListView(props: { list: ShoppingListItem[], storagePrefix:string }) {
+    const [state = {}, setState] = useLocalStorage<Record<string, number>>(props.storagePrefix, {})
     return <div style={{
         display: "grid",
         gridTemplateColumns: "auto auto auto",
-        alignItems: "center",
+        alignItems: "start",
         width: "fit-content",
         overflow: "auto",
     }}>
+        <button style={{position: "absolute", right: 8, width: "1cm", height: "1cm"}}
+                onClick={() => setState({})}>
+            X
+        </button>
         {props.list.map(item => [
-                <input id={id(item)} key={`check:${id(item)}`} type="checkbox"/>,
+                <input id={id(item)} key={`check:${id(item)}`} type="checkbox"
+                       checked={state[item.name] === item.quantity}
+                       onChange={e => e.currentTarget.checked
+                           ? setState({...state, [item.name]: item.quantity})
+                           : setState(omit(state, [item.name]))}/>,
                 <label for={id(item)} key={`name:${id(item)}`} style={{padding: 4}}>
                     {item.name}
                 </label>,
@@ -47,6 +54,7 @@ export function ShoppingListView(props: { list: ShoppingListItem[] }) {
         )}
     </div>
 }
+
 function id(item: ShoppingListItem) {
-    return `${item.name}/${item.quantity}/${item.unit}`;
+    return `${item.name}/${item.quantity}/${item.unit}`
 }
