@@ -3,7 +3,6 @@ import {DslEditor} from "../../camp-dsl/src"
 import {useState} from "preact/compat"
 import {MealsProvider} from "./meals.ts"
 import {PlanView} from "./planView.tsx"
-import {useMeals} from "./useMeals.tsx"
 import {Tab, Tabs} from "./tabs.tsx"
 import {ShoppingList} from "./shoppingList.tsx"
 import {DayList} from "./dayList.tsx"
@@ -36,23 +35,17 @@ poniedziałek:
 `.trim()
 
 export function App() {
-    const [plan, setPlan] = useState<Plan[]>([]);
-    const meals = useMeals()
+    const [plan, setPlan] = useState<Plan[]>([])
     return <Tabs style={{position: "absolute", inset: 0}}>
         <Tab name="Plan">
             <div style={{display: "flex", flexDirection: "column", position: "absolute", inset: 0}}>
                 <div style={{flex: 2, display: "flex", flexDirection: "row"}}>
-                    <div style={{flex: 2, display: "flex"}}>
-                        <DslEditor onChange={setPlan} importMetaUrl={import.meta.url} external={external}>
-                            {initial}
-                        </DslEditor>
-                    </div>
-                    <select multiple style={{flex: 1}}>
-                        {meals.map(meal => <option>{meal.title}</option>)}
-                    </select>
+                    <DslEditor onChange={setPlan} importMetaUrl={import.meta.url} external={external}>
+                        {initial}
+                    </DslEditor>
                 </div>
-                <div style={{flex: 1}}>
-                    {plan && <PlanView plan={plan}/>}
+                <div style={{flex: 1,padding: 8}}>
+                    <PlanView plan={plan}/>
                 </div>
             </div>
         </Tab>

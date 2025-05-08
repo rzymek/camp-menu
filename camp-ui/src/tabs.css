@@ -40,3 +40,15 @@
 .tab-content {
     height: 100%;
 }
+@media print {
+    .tabs-header{
+        display: none;
+    }
+    .tabs-container {
+        height: auto;
+    }
+    .tabs-content {
+        font-size: 12px;
+        overflow: initial;
+    }
+}
