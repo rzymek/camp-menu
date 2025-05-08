@@ -12,13 +12,23 @@ export function DayList(props: { meals: Plan["meals"] }) {
         const mealsIndex = createIndex(meals, meal => meal.title)
         return planMeals.map(meal => {
             const recipes = meal
-                .map(r => mealsIndex.get(r.name)!)
-                .filter(it => it)
+                .map(r => ({
+                    recipe: mealsIndex.get(r.name)!,
+                    people: r.count,
+                }))
+                .filter(it => it.recipe !== undefined)
             return ({
                 title: meal.map(r => `${r.name} (${r.count})`).join(", "),
-                list: recipes.flatMap(it => it.items),
+                list: pipe(recipes,
+                    flatMap(it => it.recipe.items
+                        .map(item => ({
+                            ...item,
+                            quantity: item.quantity * it.people,
+                        })),
+                    ),
+                ),
                 equipment: pipe(recipes,
-                    flatMap(it => it.equipment),
+                    flatMap(it => it.recipe.equipment),
                     map(it => it.desc),
                     unique(),
                 ),
