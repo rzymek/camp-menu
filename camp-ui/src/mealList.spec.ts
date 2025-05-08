@@ -11,7 +11,7 @@ thu:
 fri (3):
     meal1, meal2(2)        
 `)
-        const list = await mealList(plan)
+        const list = mealList(plan.plan)
         expect(list).toEqual({
             meal1: 2 + 3,
             meal2: 1 + 2,
