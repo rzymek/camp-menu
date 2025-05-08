@@ -1,14 +1,13 @@
 import "./app.css"
 import {DslEditor} from "../../camp-dsl/src"
-import {useEffect, useState} from "preact/compat"
+import {useState} from "preact/compat"
 import {MealsProvider} from "./meals.ts"
 import {PlanView} from "./planView.tsx"
 import {Tab, Tabs} from "./tabs.tsx"
 import {ShoppingList} from "./shoppingList.tsx"
 import {DayList} from "./dayList.tsx"
 import {Plan} from "../../camp-dsl/src/api/parser.ts"
-import useLocalStorageState from "use-local-storage-state"
-import {pipe, filter, isNonNullish, first, map, concat} from "remeda"
+import {filter, first, pipe} from "remeda"
 
 const external = {
     MealProvider: () => new MealsProvider(),
@@ -52,31 +51,28 @@ export function App() {
 }
 
 const initial = pipe(
-    [location.search.replace(/^[?]src=/, "")],
-    map(decodeURIComponent),
-    concat([demoSrc]),
-    filter(isNonNullish),
+    [
+        decodeURIComponent(location.search.replace(/^[?]src=/, "")),
+        localStorage.getItem("src"),
+        demoSrc
+    ],
+    filter(it => !!it),
     first(),
 )!;
 
 function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
-    const [src, setSrc] = useState<string>("")
     const [plan, setPlan] = useState<Plan[]>([])
-    const [savedSrc, saveSrc] = useLocalStorageState("src", {
-        defaultValue: initial,
-    })
-    useEffect(() => {
-        setSrc(savedSrc)
-    }, [])
     return <div style={{display: "flex", flexDirection: "column", position: "absolute", inset: 0}}>
         <div style={{flex: 2, display: "flex", flexDirection: "row"}}>
             <DslEditor onChange={(value, text) => {
                 setPlan(value)
                 props.onChange(value)
-                saveSrc(text)
-                history.replaceState(null, "", `?src=${encodeURIComponent(text)}`)
+                setTimeout(() => {
+                    history.replaceState(null, "", `?src=${encodeURIComponent(text)}`)
+                    localStorage.setItem("src", text)
+                },0);
             }} importMetaUrl={import.meta.url} external={external}>
-                {src || savedSrc}
+                {initial}
             </DslEditor>
         </div>
         <div style={{flex: 1, padding: 8}}>
