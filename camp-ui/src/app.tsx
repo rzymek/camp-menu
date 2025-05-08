@@ -8,12 +8,13 @@ import {ShoppingList} from "./shoppingList.tsx"
 import {DayList} from "./dayList.tsx"
 import {Plan} from "../../camp-dsl/src/api/parser.ts"
 import useLocalStorageState from "use-local-storage-state"
+import {pipe, filter, isNonNullish, first, map, concat} from "remeda"
 
 const external = {
     MealProvider: () => new MealsProvider(),
 } as const
 
-const initial = `
+const demoSrc = `
 czwartek (4):
     -
     -
@@ -50,6 +51,14 @@ export function App() {
     </Tabs>
 }
 
+const initial = pipe(
+    [location.search.replace(/^[?]src=/, "")],
+    map(decodeURIComponent),
+    concat([demoSrc]),
+    filter(isNonNullish),
+    first(),
+)!;
+
 function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
     const [src, setSrc] = useState<string>("")
     const [plan, setPlan] = useState<Plan[]>([])
@@ -65,6 +74,7 @@ function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
                 setPlan(value)
                 props.onChange(value)
                 saveSrc(text)
+                history.replaceState(null, "", `?src=${encodeURIComponent(text)}`)
             }} importMetaUrl={import.meta.url} external={external}>
                 {src || savedSrc}
             </DslEditor>
