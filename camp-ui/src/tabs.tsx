@@ -40,8 +40,12 @@ export function Tabs({children, defaultTab, style}: TabsProps) {
                 ))}
             </div>
             <div className="tabs-content">
-                {tabs.filter(child => child.props.name === activeTab)
-                    .map(child => child)}
+                {tabs.map(child =>
+                    <div key={child.props.name} style={{
+                        display: child.props.name === activeTab
+                            ? "block" : "none",
+                    }}>{child}</div>,
+                )}
             </div>
         </div>
     )
