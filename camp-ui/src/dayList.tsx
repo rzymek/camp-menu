@@ -1,27 +1,27 @@
 import {ShoppingListView} from "./shoppingList.tsx"
-import {Meals} from "../../camp-dsl/src/language/generated/ast.ts"
 import {useMeals} from "./useMeals.tsx"
 import {createIndex} from "./createIndex.ts"
 import {useMemo} from "preact/compat"
 import {flatMap, map, pipe, unique} from "remeda"
+import {Plan} from "../../camp-dsl/src/api/parser.ts"
 
-export function DayList(props: { meals: Meals[] }) {
+export function DayList(props: { meals: Plan["meals"] }) {
     const meals = useMeals()
-    const planMeals = props.meals.filter(it => it.recipies.length > 0);
+    const planMeals = props.meals.filter(it => it.length > 0)
     const data = useMemo(() => {
         const mealsIndex = createIndex(meals, meal => meal.title)
         return planMeals.map(meal => {
-            const recipes = meal.recipies
+            const recipes = meal
                 .map(r => mealsIndex.get(r.name)!)
                 .filter(it => it)
             return ({
-                title: meal.recipies.map(r => `${r.name} (${r.count?.count})`).join(", "),
+                title: meal.map(r => `${r.name} (${r.count})`).join(", "),
                 list: recipes.flatMap(it => it.items),
                 equipment: pipe(recipes,
                     flatMap(it => it.equipment),
                     map(it => it.desc),
-                    unique()
-                )
+                    unique(),
+                ),
             })
         })
     }, [meals, planMeals])

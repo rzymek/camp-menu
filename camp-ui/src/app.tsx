@@ -2,13 +2,12 @@ import "./app.css"
 import {DslEditor} from "../../camp-dsl/src"
 import {useState} from "preact/compat"
 import {MealsProvider} from "./meals.ts"
-import {Model} from "../../camp-dsl/src/language/generated/ast.ts"
-import {LangiumDocument} from "camp-dsl/src/ui/DslEditor.tsx"
 import {PlanView} from "./planView.tsx"
 import {useMeals} from "./useMeals.tsx"
 import {Tab, Tabs} from "./tabs.tsx"
 import {ShoppingList} from "./shoppingList.tsx"
 import {DayList} from "./dayList.tsx"
+import {Plan} from "../../camp-dsl/src/api/parser.ts"
 
 const external = {
     MealProvider: () => new MealsProvider(),
@@ -37,14 +36,14 @@ poniedziałek:
 `.trim()
 
 export function App() {
-    const [result, setResult] = useState<LangiumDocument<Model>>()
+    const [plan, setPlan] = useState<Plan[]>([]);
     const meals = useMeals()
     return <Tabs style={{position: "absolute", inset: 0}}>
         <Tab name="Plan">
             <div style={{display: "flex", flexDirection: "column", position: "absolute", inset: 0}}>
                 <div style={{flex: 2, display: "flex", flexDirection: "row"}}>
                     <div style={{flex: 2, display: "flex"}}>
-                        <DslEditor onChange={setResult} importMetaUrl={import.meta.url} external={external}>
+                        <DslEditor onChange={setPlan} importMetaUrl={import.meta.url} external={external}>
                             {initial}
                         </DslEditor>
                     </div>
@@ -53,14 +52,14 @@ export function App() {
                     </select>
                 </div>
                 <div style={{flex: 1}}>
-                    {result && <PlanView model={result}/>}
+                    {plan && <PlanView plan={plan}/>}
                 </div>
             </div>
         </Tab>
         <Tab name="Zakupy">
-            {result && <ShoppingList model={result}/>}
+            <ShoppingList plan={plan}/>
         </Tab>
-        {result?.parseResult.value.plan.map(day => <Tab key={day.day} name={day.day}>
+        {plan.map(day => <Tab key={day.day} name={day.day}>
             <DayList meals={day.meals}/>
         </Tab>)}
     </Tabs>

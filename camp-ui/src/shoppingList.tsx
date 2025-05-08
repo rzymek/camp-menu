@@ -1,24 +1,23 @@
-import {LangiumDocument} from "../../camp-dsl/src/ui/DslEditor"
-import {Model} from "../../camp-dsl/src/language/generated/ast"
 import {useMemo} from "preact/compat"
 import {shoppingList} from "./shoppingList"
 import {mealList} from "./mealList"
 import {useMeals} from "./useMeals"
 import {flat, round} from "remeda"
+import {Plan} from "../../camp-dsl/src/api/parser.ts"
 
-function useShoppingList(model: LangiumDocument<Model>) {
+function useShoppingList(plan: Plan[]) {
     const meals = useMeals()
 
     return useMemo(() => {
         if (meals === undefined) {
             return []
         }
-        return shoppingList(mealList(model), meals)
-    }, [model, meals])
+        return shoppingList(mealList(plan), meals)
+    }, [plan, meals])
 }
 
-export function ShoppingList(props: { model: LangiumDocument<Model> }) {
-    const list = useShoppingList(props.model)
+export function ShoppingList(props: { plan: Plan[] }) {
+    const list = useShoppingList(props.plan)
     return <ShoppingListView list={flat(list)}/>
 }
 

@@ -1,15 +1,13 @@
 import {configureMonacoWorkers} from "../setupCommon.js"
 import {DslEditorInstance, executeClassic} from "../setupClassic.js"
 import {useEffect, useRef} from "preact/hooks"
-import {createParser} from "../api/parser.js"
-import {LangiumDocument} from "langium"
-import {Model} from "../language/generated/ast.js"
+import {createParser, Plan} from "../api/parser.js"
 
 export type {LangiumDocument} from "langium"
 
 export function DslEditor(props: {
     children: string,
-    onChange(value: LangiumDocument<Model>): void,
+    onChange(value: Plan[], text:string): void,
     importMetaUrl: string,
     external: {
         MealProvider(): {
@@ -28,7 +26,7 @@ export function DslEditor(props: {
                 code: props.children,
                 async onChange(text) {
                     const result = await parser(text)
-                    props.onChange(result)
+                    props.onChange(result.plan, text)
                 },
             })
             wrapper.current = editor
