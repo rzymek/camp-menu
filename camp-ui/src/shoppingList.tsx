@@ -33,6 +33,7 @@ export function ShoppingListView(props: { list: ShoppingListItem[] }) {
         gridTemplateColumns: "auto auto auto",
         alignItems: "center",
         width: "fit-content",
+        overflow: "auto",
     }}>
         {props.list.map(item => [
                 <input id={id(item)} key={`check:${id(item)}`} type="checkbox"/>,

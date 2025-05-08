@@ -8,7 +8,7 @@ import {PlanEditor} from "./planEditor.tsx"
 
 export function App() {
     const [plan, setPlan] = useState<Plan[]>([])
-    return <Tabs style={{position: "absolute", inset: 0}}>
+    return <Tabs style={{position: "absolute", inset: 0, overflow: "hidden"}}>
         <Tab name="Plan">
             <PlanEditor onChange={setPlan}/>
         </Tab>

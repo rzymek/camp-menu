@@ -57,7 +57,7 @@ export function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
                 {initial}
             </DslEditor>
         </div>
-        <div style={{flex: 1, padding: 8}}>
+        <div style={{flex: 1, padding: 8, overflow: "auto"}}>
             <PlanView plan={plan}/>
         </div>
     </div>
