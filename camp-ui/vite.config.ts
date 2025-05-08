@@ -9,6 +9,9 @@ export default defineConfig({
     test: {
         environment: "jsdom",
         setupFiles: ["vite.setup.ts"],
+        deps:{
+            interopDefault: true
+        }
     },
     optimizeDeps:{
         exclude: ['camp-dsl']

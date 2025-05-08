@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest"
-import {createParser} from "../../camp-dsl/src"
+import {createParser} from "../../camp-dsl/src/api/parser.ts"
 import {mealList} from "./mealList.ts"
 
 describe("mealList", () => {
