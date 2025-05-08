@@ -8,6 +8,7 @@ import {PlanView} from "./planView.tsx"
 import {useMeals} from "./useMeals.tsx"
 import {Tab, Tabs} from "./tabs.tsx"
 import {ShoppingList} from "./shoppingList.tsx"
+import {DayList} from "./dayList.tsx"
 
 const external = {
     MealProvider: () => new MealsProvider(),
@@ -15,15 +16,17 @@ const external = {
 
 const initial = `
 czwartek (4):
+    -
+    -
     quesadilla
 piątek (4):
     jajecznica z pomidorami
     tosty
-    hamburger (5), hamburger wege (1)
+    hamburgery (5), hamburgery wege (1)
 sobota:
     szakszuka (6)
     curry wurst (5), curry wurst wege (1)
-    chilli con carne (5), burger wege (1)
+    chili con carne (5), hamburgery wege (1)
 niedziela (6):
     jajecznica z pomidorami
     tosty (5), tosty wege (1)
@@ -58,10 +61,7 @@ export function App() {
             {result && <ShoppingList model={result}/>}
         </Tab>
         {result?.parseResult.value.plan.map(day => <Tab key={day.day} name={day.day}>
-            <pre>
-                xxx:
-            {day.meals.flatMap(meal => meal.recipies).map(r => r.name).join("\n")}
-            </pre>
+            <DayList meals={day.meals}/>
         </Tab>)}
     </Tabs>
 }

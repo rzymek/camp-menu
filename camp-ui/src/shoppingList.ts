@@ -1,14 +1,7 @@
 import {Recipe} from "../../meal-dsl/src/api/parser.ts"
 import {MealList} from "./mealList.ts"
 import {entries, first, flatMap, groupBy, map, pipe, sortBy, values} from "remeda"
-
-function createIndex<T>(array: T[], keyExtractor: (x: T) => string): Map<string, T> {
-    const map = new Map<string, T>()
-    array.forEach(it => {
-        map.set(keyExtractor(it), it)
-    })
-    return map
-}
+import {createIndex} from "./createIndex.ts"
 
 export function shoppingList(mealList: MealList, meals: Recipe[]) {
     const mealsIndex = createIndex(meals, meal => meal.title)
