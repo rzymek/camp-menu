@@ -2,6 +2,7 @@
 import {defineConfig} from "vite"
 import react from "@vitejs/plugin-react"
 import {VitePWA} from "vite-plugin-pwa"
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +16,14 @@ export default defineConfig({
     },
     optimizeDeps: {
         exclude: ["camp-dsl"],
+    },
+    build: {
+        rollupOptions: {
+            input: {
+                main: resolve(__dirname, 'index.html'),
+                meals: resolve(__dirname, 'meals.html')
+            }
+        }
     },
     server: {
         fs: {
