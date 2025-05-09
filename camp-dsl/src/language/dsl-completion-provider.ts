@@ -1,7 +1,7 @@
 import {CompletionAcceptor, CompletionContext, DefaultCompletionProvider, NextFeature} from "langium/lsp"
 
 export class DslCompletionProvider extends DefaultCompletionProvider {
-    private items: string[] = ["initial"]
+    private items: string[] = [""]
 
     override completionFor(context: CompletionContext, next: NextFeature, acceptor: CompletionAcceptor) {
         if (next.type === "Recipe" && next.property === "name") {

@@ -1,5 +1,8 @@
 grammar Dsl
-entry Model: recipies+=Recipe*;
+entry Model: 
+    recipies+=Recipe*
+    categories+=Category*
+;
 
 Recipe:
     header=Header 
@@ -13,11 +16,12 @@ Quantity: value=NUMBER unit=TEXT;
 
 Equipment: '+' desc=TEXT;
 
+Category: category=TEXT ':' items+=ItemName;
+ItemName: '*' name=TEXT;
+
 hidden terminal WS: /[\t ]+/;
 hidden terminal NL: /[\r\n]+/;
 
-terminal INDENT: 'synthetic:indent';
-terminal DEDENT: 'synthetic:dedent';
 terminal NUMBER returns number: /[0-9]+([.][0-9]+)?/;
 terminal TEXT: /[\p{L}][^:*+\n]*/u;
 

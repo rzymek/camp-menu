@@ -10,6 +10,7 @@ import {
 import {DslGeneratedModule, DslGeneratedSharedModule} from "./generated/module.js"
 import {DslValidator, registerValidationChecks} from "./dsl-validator.js"
 import {DslCompletionProvider} from "./dsl-completion-provider.js"
+import {DslSemanticTokenProvider} from "./dsl-semantic-token-provider.js"
 
 
 /**
@@ -38,6 +39,7 @@ export const DslModule: Module<DslServices, PartialLangiumServices & DslAddedSer
     },
     lsp: {
         CompletionProvider: (services: DslServices) => new DslCompletionProvider(services),
+        SemanticTokenProvider: services => new DslSemanticTokenProvider(services),
     },
 }
 
