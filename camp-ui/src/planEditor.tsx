@@ -1,5 +1,5 @@
 import {Plan} from "../../camp-dsl/src/api/parser.ts"
-import {useState} from "preact/compat"
+import {useState} from "react"
 import {DslEditor} from "../../camp-dsl/src"
 import {PlanView} from "./planView.tsx"
 import {MealsProvider} from "./meals.ts"

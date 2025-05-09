@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 import {defineConfig} from "vite"
-import preact from "@preact/preset-vite"
+import react from "@vitejs/plugin-react"
 import {VitePWA} from "vite-plugin-pwa"
 
 // https://vitejs.dev/config/
@@ -21,18 +21,8 @@ export default defineConfig({
             strict: false,
         },
     },
-    // resolve: {
-    //     alias: {
-    //         'react': 'preact/compat',
-    //         'react-dom/test-utils': 'preact/test-utils',
-    //         'react-dom': 'preact/compat',
-    //         'react/jsx-runtime': 'preact/jsx-runtime'
-    //     }
-    // },
     plugins: [
-        preact(
-            // {jsxImportSource: "preact", reactAliasesEnabled:true}
-        ),
+        react(),
         VitePWA({
             registerType: "autoUpdate",
             workbox: {

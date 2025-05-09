@@ -3,7 +3,7 @@
         "target": "es2019",
         "module": "esnext",
         "jsx": "react-jsx",
-        "jsxImportSource": "preact",
+        "jsxImportSource": "react",
         "moduleResolution": "NodeNext",
         "lib": [
             "ESNext",

@@ -1,5 +1,5 @@
 import "./app.css"
-import {useState} from "preact/compat"
+import {useState} from "react"
 import {Tab, Tabs} from "./tabs.tsx"
 import {ShoppingList} from "./shoppingList.tsx"
 import {DayList} from "./dayList.tsx"

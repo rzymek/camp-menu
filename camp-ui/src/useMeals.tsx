@@ -1,4 +1,4 @@
-import {useEffect, useState} from "preact/compat"
+import {useEffect, useState} from "react"
 import {Recipe} from "../../meal-dsl/src/api/parser.ts"
 import {MealsProvider} from "./meals.ts"
 

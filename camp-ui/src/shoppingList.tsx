@@ -1,4 +1,4 @@
-import {useMemo} from "preact/compat"
+import {useMemo} from "react"
 import {shoppingList} from "./shoppingList"
 import {mealList} from "./mealList"
 import {useMeals} from "./useMeals"
@@ -44,10 +44,10 @@ export function ShoppingListView(props: { list: ShoppingListItem[], storagePrefi
                        onChange={e => e.currentTarget.checked
                            ? setState({...state, [item.name]: item.quantity})
                            : setState(omit(state, [item.name]))}/>,
-                <label for={id(item)} key={`name:${id(item)}`} style={{padding: 4}}>
+                <label htmlFor={id(item)} key={`name:${id(item)}`} style={{padding: 4}}>
                     {item.name}
                 </label>,
-                <label for={id(item)} key={`quantity:${id(item)}`} style={{paddingLeft: "1cm"}}>
+                <label htmlFor={id(item)} key={`quantity:${id(item)}`} style={{paddingLeft: "1cm"}}>
                     {round(item.quantity, 2)} {item.unit}
                 </label>,
             ],

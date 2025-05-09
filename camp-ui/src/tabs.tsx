@@ -1,12 +1,11 @@
 // tabs.tsx
-import {ComponentChildren} from "preact"
-import {useState} from "preact/hooks"
+import React, {useState} from "react"
 import "./tabs.css"
-import {CSSProperties} from "preact/compat" // We'll create this CSS file next
+import {CSSProperties} from "react" // We'll create this CSS file next
 
 interface TabProps {
     name: string;
-    children: ComponentChildren;
+    children: React.ReactNode;
 }
 
 export function Tab({children}: TabProps) {
@@ -15,7 +14,7 @@ export function Tab({children}: TabProps) {
 }
 
 interface TabsProps {
-    children: ComponentChildren;
+    children: React.ReactNode;
     defaultTab?: string; // Optional prop to set which tab is active by default
     style?: CSSProperties;
 }

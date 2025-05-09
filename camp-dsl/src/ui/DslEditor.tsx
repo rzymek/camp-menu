@@ -1,6 +1,6 @@
 import {configureMonacoWorkers} from "../setupCommon.js"
 import {DslEditorInstance, executeClassic} from "../setupClassic.js"
-import {useEffect, useRef} from "preact/hooks"
+import {useEffect, useRef} from "react"
 import {createParser, Plan} from "../api/parser.js"
 
 export type {LangiumDocument} from "langium"

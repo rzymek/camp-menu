@@ -1,7 +1,7 @@
 import {ShoppingListView} from "./shoppingList.tsx"
 import {useMeals} from "./useMeals.tsx"
 import {createIndex} from "./createIndex.ts"
-import {useMemo} from "preact/compat"
+import {useMemo} from "react"
 import {flatMap, map, pipe, unique} from "remeda"
 import {Plan} from "../../camp-dsl/src/api/parser.ts"
 
