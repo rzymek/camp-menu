@@ -65,6 +65,7 @@ export function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
                 localStorage.clear()
                 setSrc("")
             }}>Reset</DangerousButton>
+            <a href="meals.html" style={{margin: 8}}>Przepisy</a>
         </div>
     </div>
 

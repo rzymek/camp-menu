@@ -26,7 +26,7 @@ export function setupConfigClassic(opts: Options): UserConfig {
                     lineDecorationsWidth: 0,
                     automaticLayout: true,
                     minimap: {
-                        enabled: false,
+                        enabled: true,
                     },
                 },
             },

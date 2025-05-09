@@ -34,14 +34,18 @@ describe("Parsing tests", () => {
             //  of the AST part we are interested in and that is to be compared to our expectation;
             // prior to the tagged template expression we check for validity of the parsed document object
             //  by means of the reusable function 'checkDocumentValid()' to sort out (critical) typos first;
-            checkDocumentValid(document) || document.parseResult.value?.
+            checkDocumentValid(document) || (document.parseResult.value?.
             recipies.map(recipe => s`
             # ${recipe.header.title}
             ${recipe.items.map(item => `* ${item.name}: ${item.quantity.value} ${item.quantity.unit}`).join('\n')}
-            ${recipe.equipment.map(it => `+ ${it.desc}`).join('\n')}
-            
-            `).join('\n').replace(/\n\n\n+/g, '\n\n'),
-        ).toEqual(meals.toString())
+            ${recipe.equipment.map(it => `+ ${it.desc}`).join('\n')}           
+            `).join('\n')+
+                document.parseResult.value?.
+                categories.map(category => s`
+            ${'\n'}${category.category}:
+            ${category.items.map(item => `* ${item.name}`).join('\n')}
+            `).join('\n')).replace(/\n+/g, '\n'),
+        ).toEqual(`${meals}`.trim().replace(/\n+/g, '\n'))
     })
 })
 

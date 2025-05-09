@@ -5,11 +5,16 @@ import {createRoot} from "react-dom/client"
 function MealEditor() {
     const [src, setSrc] = useState<string>()
     useEffect(() => {
-        fetch("meals.md").then(r => r.text()).then(setSrc)
+        const saved = localStorage.getItem("mealsSrc")
+        if(saved) {
+            setSrc(saved)
+        }else{
+            fetch("meals.md").then(r => r.text()).then(setSrc)
+        }
     }, [])
     return <div style={{display: "flex", position: "absolute", inset: 0}}>
-        {src && <DslEditor onChange={(value) => {
-            console.log(value.parseResult.value);
+        {src && <DslEditor onChange={(_, text) => {
+            localStorage.setItem("mealsSrc", text);
         }} importMetaUrl={import.meta.url}>{src}</DslEditor>}
     </div>
 }

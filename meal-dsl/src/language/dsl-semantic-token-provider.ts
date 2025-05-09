@@ -16,6 +16,24 @@ export class DslSemanticTokenProvider extends AbstractSemanticTokenProvider {
                 property: "name",
                 type: SemanticTokenTypes.keyword,
             })
+        } else if (node.$type === "Recipe") {
+            acceptor({
+                node,
+                property: "header",
+                type: SemanticTokenTypes.comment,
+            })
+        } else if (node.$type === "ItemName") {
+            acceptor({
+                node,
+                property: "name",
+                type: SemanticTokenTypes.keyword,
+            })
+        } else if (node.$type === "Category") {
+            acceptor({
+                node,
+                property: "category",
+                type: SemanticTokenTypes.string,
+            })
         } else if (node.$type === "Quantity") {
             acceptor({
                 node,

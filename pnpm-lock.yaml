@@ -153,6 +153,9 @@ importers:
       react:
         specifier: ^19.1.0
         version: 19.1.0
+      remeda:
+        specifier: ^2.21.3
+        version: 2.21.3
       vscode:
         specifier: npm:@codingame/monaco-vscode-api@~3.2.3
         version: '@codingame/monaco-vscode-api@3.2.3'

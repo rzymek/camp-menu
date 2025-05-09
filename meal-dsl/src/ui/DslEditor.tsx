@@ -7,7 +7,7 @@ import {Model} from "../language/generated/ast.js"
 
 export function DslEditor(props: {
     children: string,
-    onChange(value: LangiumDocument<Model>): void,
+    onChange(value: LangiumDocument<Model>, text:string): void,
     importMetaUrl: string
 }) {
     const ref = useRef<HTMLDivElement>(null)
@@ -21,7 +21,7 @@ export function DslEditor(props: {
                 code: props.children,
                 async onChange(text) {
                     const result = await parser(text)
-                    props.onChange(result)
+                    props.onChange(result, text)
                 },
             })
         })()

@@ -32,7 +32,7 @@
 * imbir: 2 cm
 * olej rzepakowy: 50 ml
 * marchew: 0.05 kg
-* czerwona papryka: 0.5 szt
+* czerwona papryka: 100 g
 * zielona pasta curry: 35 g
 * mleczko kokosowe: 250 ml
 * ryż jaśminowy: 150 g
@@ -364,3 +364,116 @@
 * olej rzepakowy: 200 ml
 + Metalowe sitko
 + Durszlak
+
+nabiał:
+* smietana UHT 18%
+* ser żółty (krojony)
+* mleko
+* jajka
+
+mięso:
+* mięso mielone wołowe
+* pierś kurczaka
+* kiełbasa ~15cm
+* sucha krakowka
+* żeberka wędzone
+* mięso na gulasz
+* kabanosy chili
+* karkówka
+* wędzony boczek
+* polędwiczki wieprzowe
+* żeberka surowe
+* kiełbasa
+* kiełbasa wege ~15cm
+* burger wege
+* skrzydełka kurczaka
+* boczek
+* udka kurczaka
+
+warzywa:
+* cytryna
+* marchew
+* ziemniaki
+* kapusty (główka)
+* cebula
+* pieczarki
+* natka pietruszki
+* pomidory
+* czerwona papryka
+* suchego grochu łuskanego (połówki)
+* kapusta kiszona
+
+pieczywo:
+* bułka kajzerka
+* podłużne bułki do currywurst
+* chleb
+* tortilla
+
+przetwory:
+* ketchup ostry
+* musztarda
+* majonez jalapenos
+* jalapenos
+* ogórki konserwowe
+* koncentrat pomidorowy
+* cebulka prażona
+* olej rzepakowy
+* makaron tagliatelle
+* kasza gryczana
+* makaron spagetti
+* chocopuffs
+* cini minis
+* pomidory krojone puszka / przecier pomidorowy
+* pomidory krojone puszka
+* rum do grogu
+* czekolada gorzka
+* czerwona fasola puszka
+* kukurydza puszka
+* suszone śliwki
+* zakwasu żytniego do żurku
+* żurawina
+* mąka
+* chrzan
+* kawa
+* herbata
+* mięta
+* woda
+* fasola
+* rodzynki
+* miód
+* konfitura jagodowa
+* chia
+* ananas puszka
+* płatki owsiane
+* ostra pasta paprykowa
+* mleczko kokosowe
+* ryż jaśminowy
+
+chemia:
+* mokre chustki
+* papier toaletowy
+* płyn do mycia naczyń
+* worki na śmieci 60L
+
+przyprawy:
+* papryka (przyprawa)
+* curry/kurkuma
+* czosnek granulowany
+* zioła prowansalskie
+* sól
+* cukier
+* goździki
+* majeranek
+* ziarna jałowca
+* chilli
+* oregano
+* pieprz
+* proszek do pieczenia
+* kmin rzymski
+* imbir
+* zielona pasta curry
+
+leki:
+* apap/ibuprom
+* helsi / Porost Islandzki / isla
+* reni
