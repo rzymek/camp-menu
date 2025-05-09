@@ -4,10 +4,18 @@ export class MealsProvider {
     private meals?:Meals;
 
     public async getMeals() {
-        if(this.meals === undefined) {
-            const mealsSrc = await fetch("meals.md").then(r => r.text());
-            this.meals = await recipes(mealsSrc);
-        }
+        await this.lazyLoad()
+        return this.meals?.recipes ?? [];
+    }
+    public async getRecipesAndCategories() {
+        await this.lazyLoad()
         return this.meals;
+    }
+
+    private async lazyLoad(): Promise<void> {
+        if (this.meals === undefined) {
+            const mealsSrc = await fetch("meals.md").then(r => r.text())
+            this.meals = await recipes(mealsSrc)
+        }
     }
 }

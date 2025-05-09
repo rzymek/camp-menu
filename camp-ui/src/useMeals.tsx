@@ -17,7 +17,7 @@ export function useMeals(): Meals {
             return
         }
         globalCache.meals.loading = true
-        new MealsProvider().getMeals()
+        new MealsProvider().getRecipesAndCategories()
             .then(meals => {
                 globalCache.meals.value = meals
                 globalCache.meals.ready = true
