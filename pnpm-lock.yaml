@@ -150,6 +150,9 @@ importers:
       monaco-languageclient:
         specifier: ~8.1.1
         version: 8.1.1(@codingame/monaco-vscode-api@3.2.3)(@codingame/monaco-vscode-editor-api@3.2.3)
+      react:
+        specifier: ^19.1.0
+        version: 19.1.0
       vscode:
         specifier: npm:@codingame/monaco-vscode-api@~3.2.3
         version: '@codingame/monaco-vscode-api@3.2.3'
