@@ -4,6 +4,7 @@ import {DslEditor} from "../../camp-dsl/src"
 import {PlanView} from "./planView.tsx"
 import {MealsProvider} from "./meals.ts"
 import {filter, first, pipe} from "remeda"
+import {DangerousButton} from "./dangerousButton.tsx"
 
 const external = {
     MealProvider: () => new MealsProvider(),
@@ -44,6 +45,7 @@ const initial = pipe(
 
 export function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
     const [plan, setPlan] = useState<Plan[]>([])
+    const [src, setSrc] = useState(initial)
     return <div style={{display: "flex", flexDirection: "column", position: "absolute", inset: 0}}>
         <div style={{flex: 2, display: "flex", flexDirection: "row"}}>
             <DslEditor onChange={(value, text) => {
@@ -54,11 +56,15 @@ export function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
                     localStorage.setItem("src", text)
                 }, 0)
             }} importMetaUrl={import.meta.url} external={external}>
-                {initial}
+                {src}
             </DslEditor>
         </div>
         <div style={{flex: 1, padding: 8, overflow: "auto"}}>
             <PlanView plan={plan}/>
+            <DangerousButton onClick={() => {
+                localStorage.clear()
+                setSrc("")
+            }}>Reset</DangerousButton>
         </div>
     </div>
 
