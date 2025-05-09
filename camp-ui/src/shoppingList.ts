@@ -1,18 +1,20 @@
-import {Recipe} from "../../meal-dsl/src/api/parser.ts"
+import {Meals} from "../../meal-dsl/src/api/parser.ts"
 import {MealList} from "./mealList.ts"
 import {entries, first, flatMap, groupBy, map, pipe, sortBy, values} from "remeda"
 import {createIndex} from "./createIndex.ts"
+import {ShoppingListItem} from "./shoppingListItem.tsx"
 
-export function shoppingList(mealList: MealList, meals: Recipe[]) {
-    const mealsIndex = createIndex(meals, meal => meal.title)
+export type ShoppingListByCategory = Record<string, ShoppingListItem[]>
+
+export function shoppingList(mealList: MealList, meals: Meals): ShoppingListByCategory {
+    const mealsIndex = createIndex(meals.recipes, meal => meal.title)
     return pipe(
         mealList,
         entries(),
         flatMap(([meal, count]) =>
             (mealsIndex.get(meal)?.items ?? []).map(item => ({
-                name: item.name,
+                ...item,
                 quantity: item.quantity * count,
-                unit: item.unit,
             })),
         ),
         groupBy(it => it.name),
@@ -21,7 +23,9 @@ export function shoppingList(mealList: MealList, meals: Recipe[]) {
             name: first(it).name,
             quantity: it.reduce((acc, it) => acc + it.quantity, 0),
             unit: first(it).unit,
+            category: first(it).category,
         })),
-        sortBy(item => item.name)
+        sortBy(item => meals.categories.indexOf(item.category), item => item.name),
+        groupBy(item => item.category),
     )
 }

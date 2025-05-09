@@ -1,16 +1,16 @@
 import {useEffect, useState} from "react"
-import {Recipe} from "../../meal-dsl/src/api/parser.ts"
+import {Meals} from "../../meal-dsl/src/api/parser.ts"
 import {MealsProvider} from "./meals.ts"
 
 const globalCache = {
     meals: {
         loading: false,
         ready: false,
-        value: [] as Recipe[],
+        value: undefined as Meals | undefined,
     },
 }
 
-export function useMeals(): Recipe[]     {
+export function useMeals(): Meals {
     const [ready, setReady] = useState(globalCache.meals.ready)
     useEffect(() => {
         if (globalCache.meals.loading) {
@@ -24,5 +24,8 @@ export function useMeals(): Recipe[]     {
                 setReady(true)
             })
     }, [])
-    return ready ? globalCache.meals.value : []
+    return ready ? globalCache.meals.value! : {
+        categories: [],
+        recipes: [],
+    }
 }

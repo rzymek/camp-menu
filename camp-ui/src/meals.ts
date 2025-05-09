@@ -1,7 +1,7 @@
-import {Recipe, recipes} from "../../meal-dsl/src/api/parser.ts"
+import {Meals, recipes} from "../../meal-dsl/src/api/parser.ts"
 
 export class MealsProvider {
-    private meals?:Recipe[];
+    private meals?:Meals;
 
     public async getMeals() {
         if(this.meals === undefined) {

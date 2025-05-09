@@ -2,14 +2,14 @@ import {ShoppingListView} from "./shoppingList.tsx"
 import {useMeals} from "./useMeals.tsx"
 import {createIndex} from "./createIndex.ts"
 import {useMemo} from "react"
-import {flatMap, map, pipe, unique} from "remeda"
+import {flatMap, groupBy, map, pipe, sortBy, unique, values} from "remeda"
 import {Plan} from "../../camp-dsl/src/api/parser.ts"
 
 export function DayList(props: { meals: Plan["meals"] }) {
     const meals = useMeals()
     const planMeals = props.meals.filter(it => it.length > 0)
     const data = useMemo(() => {
-        const mealsIndex = createIndex(meals, meal => meal.title)
+        const mealsIndex = createIndex(meals.recipes, meal => meal.title)
         return planMeals.map(meal => {
             const recipes = meal
                 .map(r => ({
@@ -26,6 +26,14 @@ export function DayList(props: { meals: Plan["meals"] }) {
                             quantity: item.quantity * it.people,
                         })),
                     ),
+                    groupBy(it => it.name),
+                    values(),
+                    map(byName => byName.reduce((acc, it) => ({
+                        ...acc,
+                        quantity: acc.quantity + it.quantity,
+                    }))),
+                    sortBy(item => meals.categories.indexOf(item.category), item => item.name),
+                    groupBy(item => item.category),
                 ),
                 equipment: pipe(recipes,
                     flatMap(it => it.recipe.equipment),
@@ -37,7 +45,7 @@ export function DayList(props: { meals: Plan["meals"] }) {
     }, [meals, planMeals])
 
     return <div style={{paddingBottom: 16}}>
-        {data.map(section => <div>
+        {data.map(section => <div key={section.title}>
             <h3>{section.title}</h3>
             <ShoppingListView list={section.list} storagePrefix={section.title}/>
             <ul>
