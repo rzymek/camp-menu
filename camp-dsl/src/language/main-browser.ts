@@ -17,6 +17,7 @@ const { shared, Dsl } = createDslServices({ connection, ...EmptyFileSystem });
 connection.onNotification(UpdateCompletionDataNotification, params => {
     const completionProvider = Dsl.lsp.CompletionProvider as DslCompletionProvider;
     completionProvider.update(params.items);
+    Dsl.validation.DslValidator.update(params.items);
 })
 
 startLanguageServer(shared)
