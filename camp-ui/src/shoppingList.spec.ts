@@ -10,7 +10,13 @@ describe("shoppingList", () => {
 * b: 13 g
 #meal1
 * c: 22 L
-* a: 11 g        
+* a: 11 g   
+
+cat2:
+* c
+cat1:
+* a
+* b
 `)
         const plan = {
             meal1: 5,
@@ -18,10 +24,12 @@ describe("shoppingList", () => {
         } as const
         const result = shoppingList(plan, meals)
 
-        expect(result).toEqual([
-            {name: "a", unit: "g", quantity: 42 * plan.meal2 + 11 * plan.meal1},
-            {name: "b", unit: "g", quantity: 13 * plan.meal2},
-            {name: "c", unit: "L", quantity: 22 * plan.meal1},
-        ])
+        expect(result).toEqual({
+            cat2: [{name: "c", unit: "L", quantity: 22 * plan.meal1, category: "cat2"}],
+            cat1: [
+                {name: "a", unit: "g", quantity: 42 * plan.meal2 + 11 * plan.meal1, category: "cat1"},
+                {name: "b", unit: "g", quantity: 13 * plan.meal2, category: "cat1"},
+            ],
+        })
     })
 })
