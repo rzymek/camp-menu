@@ -5,12 +5,40 @@
 * ananas puszka: 60 g
 * konfitura jagodowa: 60 g
 
+# owoce morza w sosie pomidorowym
+* pomidory krojone puszka: 200g
+* kapary: 10g
+* cebula: 50g
+* owoce morza: 250g
+* czosnek granulowany: 5g
+* białe wino: 50 ml
+* olej rzepakowy: 4 ml
+* natka pietruszki: 0.2 szt
+* bagietka: 4 kromki
+* sól: 2g
+* pieprz: 1g
+
+
+# udon kalafiorowy
+* udon: 200 g
+* kalafior: 160 g
+* mleczko kokosowe: 70 ml
+* pierś kurczaka: 100g
+* cebula: 50g
+* natka pietruszki: 0.1 szt
+* olej rzepakowy: 5 ml
+* curry/kurkuma: 2g
+* sól: 2g
+* pieprz: 1g
+* papryka (przyprawa): 0.1 opakowanie
+* czosnek granulowany: 2 g
+
 # żeberka
 * żeberka surowe: 300 g
 * ziemniaki: 0.15 kg
 * cebula: 60 g
 * rodzynki: 5 g
-* olej rzepakowy: 10 ml
+* olej rzepakowy: 5 ml
 * musztarda: 60 g
 * miód: 60 g
 * sól: 5 g
@@ -365,50 +393,6 @@
 + Metalowe sitko
 + Durszlak
 
-nabiał:
-* smietana UHT 18%
-* ser żółty (krojony)
-* mleko
-* jajka
-
-mięso:
-* mięso mielone wołowe
-* pierś kurczaka
-* kiełbasa ~15cm
-* sucha krakowka
-* żeberka wędzone
-* mięso na gulasz
-* kabanosy chili
-* karkówka
-* wędzony boczek
-* polędwiczki wieprzowe
-* żeberka surowe
-* kiełbasa
-* kiełbasa wege ~15cm
-* burger wege
-* skrzydełka kurczaka
-* boczek
-* udka kurczaka
-
-warzywa:
-* cytryna
-* marchew
-* ziemniaki
-* kapusty (główka)
-* cebula
-* pieczarki
-* natka pietruszki
-* pomidory
-* czerwona papryka
-* suchego grochu łuskanego (połówki)
-* kapusta kiszona
-
-pieczywo:
-* bułka kajzerka
-* podłużne bułki do currywurst
-* chleb
-* tortilla
-
 przetwory:
 * ketchup ostry
 * musztarda
@@ -419,6 +403,7 @@ przetwory:
 * cebulka prażona
 * olej rzepakowy
 * makaron tagliatelle
+* udon
 * kasza gryczana
 * makaron spagetti
 * chocopuffs
@@ -437,7 +422,6 @@ przetwory:
 * kawa
 * herbata
 * mięta
-* woda
 * fasola
 * rodzynki
 * miód
@@ -448,6 +432,7 @@ przetwory:
 * ostra pasta paprykowa
 * mleczko kokosowe
 * ryż jaśminowy
+* kapary
 
 chemia:
 * mokre chustki
@@ -472,6 +457,57 @@ przyprawy:
 * kmin rzymski
 * imbir
 * zielona pasta curry
+
+napoje:
+* białe wino
+* woda
+
+nabiał:
+* smietana UHT 18%
+* ser żółty (krojony)
+* mleko
+* jajka
+
+mięso:
+* mięso mielone wołowe
+* pierś kurczaka
+* kiełbasa ~15cm
+* sucha krakowka
+* żeberka wędzone
+* mięso na gulasz
+* kabanosy chili
+* karkówka
+* wędzony boczek
+* polędwiczki wieprzowe
+* żeberka surowe
+* kiełbasa
+* kiełbasa wege ~15cm
+* burger wege
+* skrzydełka kurczaka
+* boczek
+* udka kurczaka
+* owoce morza
+
+warzywa:
+* cytryna
+* marchew
+* ziemniaki
+* kapusty (główka)
+* cebula
+* pieczarki
+* natka pietruszki
+* pomidory
+* czerwona papryka
+* suchego grochu łuskanego (połówki)
+* kapusta kiszona
+* kalafior
+
+pieczywo:
+* bułka kajzerka
+* podłużne bułki do currywurst
+* chleb
+* tortilla
+* bagietka
 
 leki:
 * apap/ibuprom
