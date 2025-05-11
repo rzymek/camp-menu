@@ -11,8 +11,8 @@
 * cebula: 60 g
 * rodzynki: 5 g
 * olej rzepakowy: 10 ml
-* musztarda: 30 g
-* miód: 30 g
+* musztarda: 60 g
+* miód: 60 g
 * sól: 5 g
 * pieprz: 5 g
 + kociołek,łyżka,druciak
