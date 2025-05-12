@@ -66,7 +66,8 @@ export function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
                 setSrc("")
             }}>Reset</DangerousButton>
             <a href="meals.html" style={{margin: 8}}>Przepisy</a>
-            <a href="https://github.com/rzymek/camp-menu/blob/main/camp-ui/public/meals.md" style={{margin: 8}}>Źródło</a>
+            <a href="https://github.com/rzymek/camp-menu/blob/main/camp-ui/public/meals.md" target="_blank"
+               style={{margin: 8}}>Źródło</a>
         </div>
     </div>
 
