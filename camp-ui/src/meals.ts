@@ -1,4 +1,5 @@
 import {Meals, recipes} from "../../meal-dsl/src/api/parser.ts"
+import mealsSrc from "./meals.md?raw";
 
 export class MealsProvider {
     private meals?:Meals;
@@ -7,6 +8,7 @@ export class MealsProvider {
         await this.lazyLoad()
         return this.meals?.recipes ?? [];
     }
+
     public async getRecipesAndCategories() {
         await this.lazyLoad()
         return this.meals;
@@ -14,7 +16,6 @@ export class MealsProvider {
 
     private async lazyLoad(): Promise<void> {
         if (this.meals === undefined) {
-            const mealsSrc = await fetch("meals.md").then(r => r.text())
             this.meals = await recipes(mealsSrc)
         }
     }
