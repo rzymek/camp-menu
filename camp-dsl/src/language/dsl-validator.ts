@@ -9,7 +9,7 @@ export function registerValidationChecks(services: DslServices) {
     const registry = services.validation.ValidationRegistry
     const validator = services.validation.DslValidator
     const checks: ValidationChecks<DslAstType> = {
-        Recipe: validator.checkRecipeName,
+        Recipe: validator.checkRecipe,
     }
     registry.register(checks, validator)
 }
@@ -19,6 +19,17 @@ export function registerValidationChecks(services: DslServices) {
  */
 export class DslValidator {
     private validMealNames: string[] = []
+
+    checkRecipe(meal: Recipe, accept: ValidationAcceptor): void {
+        this.checkRecipeCount(meal, accept);
+        this.checkRecipeName(meal, accept);
+    }
+
+    checkRecipeCount(meal: Recipe, accept: ValidationAcceptor): void {
+        if (meal.count === undefined && meal.$container.$container.count === undefined) {
+            accept("error", `Brak liczby osób. Usupełnij przy posiłku lub ustaw dla dnia.`, {node: meal})
+        }
+    }
 
     checkRecipeName(meal: Recipe, accept: ValidationAcceptor): void {
         if (this.validMealNames.length === 0) {

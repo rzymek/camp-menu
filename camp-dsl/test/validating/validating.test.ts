@@ -7,44 +7,59 @@ import {Model} from "../../src/language/generated/ast.js"
 import {checkDocumentValid} from "../checkDocumentValid.js"
 import {diagnosticToString} from "../diagnosticToString.js"
 
-let services: ReturnType<typeof createDslServices>;
-let parse:    ReturnType<typeof parseHelper<Model>>;
-let document: LangiumDocument<Model> | undefined;
+let services: ReturnType<typeof createDslServices>
+let parse: ReturnType<typeof parseHelper<Model>>
+let document: LangiumDocument<Model> | undefined
 
 beforeAll(async () => {
-    services = createDslServices(EmptyFileSystem);
-    const doParse = parseHelper<Model>(services.Dsl);
-    parse = (input: string) => doParse(input, { validation: true });
+    services = createDslServices(EmptyFileSystem)
+    const doParse = parseHelper<Model>(services.Dsl)
+    parse = (input: string) => doParse(input, {validation: true})
 
     // activate the following if your linking test requires elements from a built-in library, for example
     // await services.shared.workspace.WorkspaceManager.initializeWorkspace([]);
-});
+})
 
-describe('Validating', () => {
-  
-    test('check no errors', async () => {
+describe("Validating", () => {
+    test("check no errors", async () => {
+        document = await parse(s`
+            wt (1):
+                jajecznica
+            śr: 
+                pomidorowa (2)            
+        `)
+
+        expect(
+            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString),
+        ).toEqual([
+        ])
+    })
+
+    test("check count", async () => {
         document = await parse(s`
             wt:
                 jajecznica
-        `);
+        `)
 
         expect(
-            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)
-        ).toEqual([])
-    });
+            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString),
+        ).toEqual([
+          `[1:4..1:14]: Brak liczby osób. Usupełnij przy posiłku lub ustaw dla dnia.`,
+        ])
+    })
 
-    test.skip('check capital letter validation', async () => {
+    test.skip("check capital letter validation", async () => {
         document = await parse(`
             person langium
-        `);
+        `)
 
         expect(
-            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)?.join('\n')
+            checkDocumentValid(document) || document?.diagnostics?.map(diagnosticToString)?.join("\n"),
         ).toEqual(
             expect.stringContaining(s`
                 [1:19..1:26]: Person name should start with a capital.
-            `)
-        );
-    });
-});
+            `),
+        )
+    })
+})
 
