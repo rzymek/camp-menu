@@ -1,4 +1,4 @@
-import {useMemo} from "react"
+import {Fragment, useMemo} from "react"
 import {ShoppingListByCategory, shoppingList} from "./shoppingList"
 import {mealList} from "./mealList"
 import {useMeals} from "./useMeals"
@@ -31,23 +31,23 @@ export function ShoppingListView(props: { list: ShoppingListByCategory, storageP
         position: 'relative',
     }}>
         {Object.entries(props.list).map(([category, items]) =>
-            <>
+            <Fragment key={category}>
                 <i style={{fontSize:'80%', gridColumn: 'span 3', marginTop: 8}} key={category}>{category}:</i>
-                {items.map(item => [
-                        <input id={id(item)} key={`check:${id(item)}`} type="checkbox"
+                {items.map(item => <Fragment key={id(item)}>
+                        <input id={id(item)} type="checkbox"
                                checked={state[item.name] === item.quantity}
                                onChange={e => e.currentTarget.checked
                                    ? setState({...state, [item.name]: item.quantity})
-                                   : setState(omit(state, [item.name]))}/>,
-                        <label htmlFor={id(item)} key={`name:${id(item)}`} style={{padding: 4}}>
+                                   : setState(omit(state, [item.name]))}/>
+                        <label htmlFor={id(item)} style={{padding: 4}}>
                             {item.name}
-                        </label>,
-                        <label htmlFor={id(item)} key={`quantity:${id(item)}`} style={{paddingLeft: "1cm"}}>
+                        </label>
+                        <label htmlFor={id(item)} style={{paddingLeft: "1cm"}}>
                             {round(item.quantity, 2)} {item.unit}
-                        </label>,
-                    ],
+                        </label>
+                    </Fragment>
                 )}
-            </>)}
+            </Fragment>)}
     </div>
 }
 
