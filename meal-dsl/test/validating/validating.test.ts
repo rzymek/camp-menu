@@ -23,7 +23,7 @@ beforeAll(async () => {
 describe("Validating", () => {
 
     test("check no errors", async () => {
-        const meals = await fs.readFile(__dirname + "/../../../camp-ui/public/meals.md")
+        const meals = await fs.readFile(__dirname + "/../../../camp-ui/src/meals.md")
         document = await parse(`${meals}`)
 
         expect(
