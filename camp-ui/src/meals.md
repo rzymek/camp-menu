@@ -251,8 +251,9 @@
 * wędzony boczek: 75 g
 * żeberka wędzone: 150 g
 * majeranek: 0.2 opakowanie
-* kapusta kiszona: 100 g
-* ziemniaki: 0.2 kg
+* kapusta kiszona: 125 g
+* ziemniaki: 0.3 kg
+* cebula: 50 g
 * czosnek granulowany: 4 g
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
@@ -293,6 +294,8 @@
 # żurek
 * zakwasu żytniego do żurku: 125 ml
 * majeranek: 0.2 opakowanie
+* ziemniaki: 0.3 kg
+* marchew: 0.04 kg
 * sól: 10 g
 * pieprz: 10 g
 * kiełbasa ~15cm: 1 szt
