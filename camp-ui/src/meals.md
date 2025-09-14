@@ -312,8 +312,24 @@
 * kiełbasa ~15cm: 1 szt
 * wędzony boczek: 50 g
 * smietana UHT 18%: 25 g
+* ziemniaki: 0.2 kg
 * chrzan: 10 g
 * jajka: 2 szt
++ kociołek,łyżka,druciak
+
+# zupa rybna
+* ryba (wędzona/surowa): 100 g
+* marchew: 0.05 kg
+* por: 0.04 g
+* papryka: 30 g
+* seler naciowy: 0.03 kg
+* ziemniaki: 0.1 kg
+* cebula: 30 g
+* pomidory krojone puszka: 100 g
+* czosnek granulowany: 2 g
+* pieprz: 2 g
+* sól: 5 g
+* chilli: 0.05 opakowanie
 + kociołek,łyżka,druciak
 
 # chili con carne
@@ -501,6 +517,7 @@ mięso:
 * boczek
 * udka kurczaka
 * owoce morza
+* ryba (wędzona/surowa)
 
 warzywa:
 * cytryna
@@ -517,6 +534,8 @@ warzywa:
 * kalafior
 * cukinia
 * papryka
+* por
+* seler naciowy
 
 pieczywo:
 * bułka kajzerka
