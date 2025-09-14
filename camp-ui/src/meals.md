@@ -153,6 +153,20 @@
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
 
+# leczo
+* kiełbasa ~15cm: 1.5 szt
+* cukinia: 100 g
+* cebula: 50 g
+* papryka: 100 g
+* pomidory krojone puszka: 110 g
+* papryka (przyprawa): 0.1 opakowanie
+* czosnek granulowany: 5 g
+* zioła prowansalskie: 0.2 opakowanie
+* olej rzepakowy: 50 ml
+* sól: 20 g
++ kociołek,łyżka,druciak
++ obieraczka do warzyw
+
 # quesadilla
 * tortilla: 2 szt
 * ser żółty (krojony): 60 g
@@ -251,9 +265,8 @@
 * wędzony boczek: 75 g
 * żeberka wędzone: 150 g
 * majeranek: 0.2 opakowanie
-* kapusta kiszona: 125 g
-* ziemniaki: 0.3 kg
-* cebula: 50 g
+* kapusta kiszona: 100 g
+* ziemniaki: 0.2 kg
 * czosnek granulowany: 4 g
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
@@ -294,8 +307,6 @@
 # żurek
 * zakwasu żytniego do żurku: 125 ml
 * majeranek: 0.2 opakowanie
-* ziemniaki: 0.3 kg
-* marchew: 0.04 kg
 * sól: 10 g
 * pieprz: 10 g
 * kiełbasa ~15cm: 1 szt
@@ -504,6 +515,8 @@ warzywa:
 * suchego grochu łuskanego (połówki)
 * kapusta kiszona
 * kalafior
+* cukinia
+* papryka
 
 pieczywo:
 * bułka kajzerka
