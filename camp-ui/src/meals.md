@@ -93,7 +93,7 @@
 * pierś kurczaka: 150 g
 * makaron tagliatelle: 125 g
 * cebula: 40 g
-* pieczarki: 80 g
+* pieczarki: 120 g
 * natka pietruszki: 0.2 szt
 * sól: 10 g
 + kociołek,łyżka,druciak
