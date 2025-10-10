@@ -144,7 +144,7 @@
 * kiełbasa ~15cm: 0.5 szt
 * czosnek granulowany: 5 g
 * zioła prowansalskie: 0.2 opakowanie
-* olej rzepakowy: 50 ml
+* olej rzepakowy: 10 ml
 * marchew: 0.15 kg
 * ziemniaki: 0.3 kg
 * kapusty (główka): 200 g
