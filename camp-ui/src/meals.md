@@ -319,7 +319,7 @@
 + kociołek,łyżka,druciak
 
 # zupa rybna
-* ryba (wędzona/surowa): 100 g
+* ryba (wędzona/surowa): 200 g
 * marchew: 0.05 kg
 * por: 0.04 g
 * papryka: 30 g
@@ -381,7 +381,7 @@
 # przekąski
 * kabanosy chili: 0.25 opakowania
 * czekolada gorzka: 0.25 tabliczki
-* woda: 1 L
+* woda: 2 L
 * kawa: 12 g
 * mięta: 1 torebka
 * herbata: 1 torebka
@@ -402,6 +402,14 @@
 * jajka: 4 szt
 * chleb: 1 kromki
 * pomidory: 0.5 szt
+* wędzony boczek: 15 g
+* cebula: 50 g
+* sól: 4 g
+
+# jajecznica z boczniakam8
+* jajka: 4 szt
+* chleb: 1 kromki
+* boczniaki: 100 g
 * wędzony boczek: 15 g
 * cebula: 50 g
 * sól: 4 g
