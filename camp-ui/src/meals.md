@@ -535,6 +535,7 @@ warzywa:
 * kapusty (główka)
 * cebula
 * pieczarki
+* boczniaki
 * natka pietruszki
 * pomidory
 * czerwona papryka
