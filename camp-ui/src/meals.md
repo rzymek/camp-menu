@@ -385,6 +385,7 @@
 * kawa: 12 g
 * mięta: 1 torebka
 * herbata: 1 torebka
+* jabłka: 1 szt
 
 # akcesoria
 * papier toaletowy: 0.25 rolka
