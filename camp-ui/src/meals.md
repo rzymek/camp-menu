@@ -547,6 +547,7 @@ warzywa:
 * papryka
 * por
 * seler naciowy
+* jabłka
 
 pieczywo:
 * bułka kajzerka
