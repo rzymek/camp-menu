@@ -386,6 +386,7 @@
 * mięta: 1 torebka
 * herbata: 1 torebka
 * jabłka: 1 szt
+* orzeszki: 200 g
 
 # akcesoria
 * papier toaletowy: 0.25 rolka
@@ -473,6 +474,7 @@ przetwory:
 * mleczko kokosowe
 * ryż jaśminowy
 * kapary
+* orzeszki
 
 chemia:
 * mokre chustki
