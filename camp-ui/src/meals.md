@@ -408,7 +408,7 @@
 * cebula: 50 g
 * sól: 4 g
 
-# jajecznica z boczniakam
+# jajecznica z boczniakami
 * jajka: 4 szt
 * chleb: 1 kromki
 * boczniaki: 100 g
