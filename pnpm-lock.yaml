@@ -6,6 +6,8 @@ settings:
 
 importers:
 
+  .: {}
+
   camp-dsl:
     dependencies:
       '@codingame/monaco-vscode-editor-service-override':
