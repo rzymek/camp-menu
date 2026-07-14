@@ -309,7 +309,6 @@
 * majeranek: 0.2 opakowanie
 * sól: 10 g
 * pieprz: 10 g
-* ziemniaki: 0.1 kg
 * kiełbasa ~15cm: 1 szt
 * wędzony boczek: 50 g
 * smietana UHT 18%: 25 g
