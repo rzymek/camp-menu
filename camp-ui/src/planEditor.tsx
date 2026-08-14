@@ -1,10 +1,12 @@
 import {Plan} from "../../camp-dsl/src/api/parser.ts"
 import {useState} from "react"
+import LZString from "lz-string"
 import {DslEditor} from "../../camp-dsl/src"
 import {PlanView} from "./planView.tsx"
 import {MealsProvider} from "./meals.ts"
 import {filter, first, pipe} from "remeda"
-import {DangerousButton} from "./dangerousButton.tsx"
+import {DangerousButton} from "./dangerousButton.tsx";
+import {decodeSrc} from "./decodeSrc.ts";
 
 const external = {
     MealProvider: () => new MealsProvider(),
@@ -32,9 +34,10 @@ poniedziałek:
     quesadilla (5), quesadilla wege (1)
 `.trim()
 
+
 const initial = pipe(
     [
-        decodeURIComponent(location.search.replace(/^[?]src=/, "")),
+        decodeSrc(location.search),
         localStorage.getItem("src"),
         demoSrc,
     ],
@@ -52,7 +55,7 @@ export function PlanEditor(props: { onChange: (plan: Plan[]) => void }) {
                 setPlan(value)
                 props.onChange(value)
                 setTimeout(() => {
-                    history.replaceState(null, "", `?src=${encodeURIComponent(text)}`)
+                    history.replaceState(null, "", `?src=${LZString.compressToEncodedURIComponent(text)}`)
                     localStorage.setItem("src", text)
                 }, 0)
             }} importMetaUrl={import.meta.url} external={external}>
