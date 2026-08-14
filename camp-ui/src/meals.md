@@ -18,6 +18,16 @@
 * sól: 2g
 * pieprz: 1g
 
+# opiekane ziemniaki z kociołka
+* ziemniaki: 0.35 kg
+* wędzony boczek: 50 g
+* cebula: 80 g
+* czosnek granulowany: 4 g
+* natka pietruszki: 0.2 szt
+* papryka (przyprawa): 0.1 opakowanie
+* sól: 10 g
+* pieprz: 3 g
+* olej rzepakowy: 20 ml
 
 # udon kalafiorowy
 * udon: 200 g
