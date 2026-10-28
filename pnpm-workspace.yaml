@@ -2,3 +2,6 @@ packages:
   - camp-dsl
   - meal-dsl
   - camp-ui 
+allowBuilds:
+  esbuild: true
+  sharp: true

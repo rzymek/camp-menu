@@ -443,7 +443,7 @@
 + Metalowe sitko
 + Durszlak
 
-# stir-fry z wołowiną
+# stir fry z wołowiną
 * wołowina (rostbef/antrykot): 200 g
 * sos sojowy: 40 ml
 * miód: 15 g
@@ -460,7 +460,7 @@
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
 
-# stir-fry vege
+# stir fry vege
 * tofu: 180 g
 * sos sojowy: 40 ml
 * miód: 15 g
