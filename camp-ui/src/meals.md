@@ -443,6 +443,41 @@
 + Metalowe sitko
 + Durszlak
 
+# stir-fry z wołowiną
+* wołowina (rostbef/antrykot): 200 g
+* sos sojowy: 40 ml
+* miód: 15 g
+* imbir: 2 cm
+* czosnek granulowany: 5 g
+* olej rzepakowy: 20 ml
+* cebula: 60 g
+* czerwona papryka: 100 g
+* marchew: 0.05 kg
+* cukinia: 80 g
+* chilli: 0.05 opakowanie
+* udon: 200 g
+* pieprz: 1 g
++ kociołek,łyżka,druciak
++ obieraczka do warzyw
+
+# stir-fry vege
+* tofu: 180 g
+* sos sojowy: 40 ml
+* miód: 15 g
+* imbir: 2 cm
+* czosnek granulowany: 5 g
+* olej rzepakowy: 25 ml
+* cebula: 60 g
+* czerwona papryka: 100 g
+* marchew: 0.05 kg
+* cukinia: 80 g
+* boczniaki: 80 g
+* orzeszki: 25 g
+* chilli: 0.05 opakowanie
+* udon: 200 g
++ kociołek,łyżka,druciak
++ obieraczka do warzyw
+
 przetwory:
 * ketchup ostry
 * musztarda
@@ -484,6 +519,7 @@ przetwory:
 * ryż jaśminowy
 * kapary
 * orzeszki
+* sos sojowy
 
 chemia:
 * mokre chustki
@@ -518,6 +554,7 @@ nabiał:
 * ser żółty (krojony)
 * mleko
 * jajka
+* tofu
 
 mięso:
 * mięso mielone wołowe
@@ -539,6 +576,7 @@ mięso:
 * udka kurczaka
 * owoce morza
 * ryba (wędzona/surowa)
+* wołowina (rostbef/antrykot)
 
 warzywa:
 * cytryna
