@@ -163,6 +163,23 @@
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
 
+# prażonka z karkówką
+* karkówka: 250 g
+* wędzony boczek: 50 g
+* czosnek granulowany: 5 g
+* zioła prowansalskie: 0.2 opakowanie
+* papryka (przyprawa): 0.1 opakowanie
+* majeranek: 0.2 opakowanie
+* olej rzepakowy: 10 ml
+* marchew: 0.15 kg
+* ziemniaki: 0.3 kg
+* kapusty (główka): 200 g
+* cebula: 150 g
+* sól: 20 g
+* pieprz: 3 g
++ kociołek,łyżka,druciak
++ obieraczka do warzyw
+
 # leczo
 * kiełbasa ~15cm: 1.5 szt
 * cukinia: 100 g
