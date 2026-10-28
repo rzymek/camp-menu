@@ -160,6 +160,7 @@
 * kapusty (główka): 200 g
 * cebula: 150 g
 * sól: 20 g
+* pieprz: 3 g
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
 
@@ -476,6 +477,7 @@
 * pieprz: 1 g
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
++ wok., taboret gazowy
 
 # stir fry vege
 * tofu: 180 g
@@ -494,6 +496,7 @@
 * udon: 200 g
 + kociołek,łyżka,druciak
 + obieraczka do warzyw
++ wok., taboret gazowy
 
 przetwory:
 * ketchup ostry
